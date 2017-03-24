@@ -4,6 +4,7 @@
       image: node
       commands:
         - cd angular
+        - npm install -g gulp-cli
         - npm install --silent
         - gulp concatJS
         - gulp test

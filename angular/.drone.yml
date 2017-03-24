@@ -1,0 +1,9 @@
+---
+  pipeline:
+    build:
+      image: node
+      commands:
+        - cd angular
+        - npm install --silent
+        - gulp concatJS
+        - gulp test

@@ -5,7 +5,7 @@ var Server = require('karma').Server;
 
 gulp.task('concatJS', function() {
   gulp.start('cleanBuiltFolder');
-  return gulp.src(['./app/**/*.js', './app/*.js'])
+  return gulp.src(['./app/*.js', './app/**/*.js'])
   .pipe(concat('built.js'))
   .pipe(gulp.dest('./built/'))
 });

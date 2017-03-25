@@ -1,0 +1,9 @@
+[
+  {
+    "name":"Account 1",
+    "type":"Current",
+    "currency":"GBP",
+    "balance":"100.00",
+    "transactions": []
+  }
+]

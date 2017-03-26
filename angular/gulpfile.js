@@ -16,6 +16,7 @@ gulp.task('cleanBuiltFolder', function() {
 });
 
 gulp.task('test', function(done) {
+  gulp.start('concatJS');
   new Server({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true

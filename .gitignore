@@ -1,2 +1,11 @@
+.DS_Store
 angular/node_modules
+node/node_modules
+.tmp
+.idea
+.log
+docs
+.env
+npm-debug.log
+.nyc_output
 angular/built

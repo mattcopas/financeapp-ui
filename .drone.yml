@@ -1,10 +1,18 @@
 ---
   pipeline:
-    build:
+    build-frontend:
       image: node
       commands:
         - cd angular
         - npm install -g gulp-cli
         - npm install --silent
         - gulp concatJS
+        - gulp test
+
+    build-backend:
+      image: node
+      commands:
+        - cd node
+        - npm install -g gulp-cli
+        - npm install --silent
         - gulp test

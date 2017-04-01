@@ -11,7 +11,8 @@
   "dependencies": {
     "express": "^4.15.2",
     "gulp": "^3.9.1",
-    "gulp-jasmine-node": "^1.0.7"
+    "gulp-jasmine-node": "^1.0.7",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "frisby": "^0.8.5",

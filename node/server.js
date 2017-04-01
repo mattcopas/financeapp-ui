@@ -1,11 +1,10 @@
 const express = require('express');
 const app = express();
+const router = require('./routes/router');
 
-app.use(express.static(__dirname + '/../'));
+// app.use(express.static(__dirname + '/../'));
 
-app.get('/', function(request, response) {
-  response.sendFile('index.html');
-});
+app.use('/', router);
 
 var server = app.listen(3000, function() {
   console.log("Server listening");

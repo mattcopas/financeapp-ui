@@ -1,14 +1,10 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
+const apiRouter = express.Router();
 const path = require('path');
 const Account = require('../models/account');
 
-router.get('/', function(request, response) {
-  response.sendFile(path.resolve('../index.html'));
-});
-
-router.post('/account/save', function(request, response) {
+apiRouter.post('/account/save', function(request, response) {
   var account = new Account({
     name: 'My First Account',
     type: 'Current',
@@ -23,4 +19,4 @@ router.post('/account/save', function(request, response) {
   });
 });
 
-module.exports = router;
+module.exports = apiRouter;

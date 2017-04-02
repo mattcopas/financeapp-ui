@@ -6,7 +6,7 @@ var accountSchema = new Schema({
   type: String,
   currency: String,
   balance: Number,
-  transactions: Array
+  transactions: [{type: Schema.Types.ObjectId, ref: 'Transaction'}]
 });
 
 var Account = mongoose.model('Account', accountSchema);

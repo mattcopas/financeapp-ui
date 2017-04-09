@@ -3,14 +3,14 @@ const app = express();
 const apiRouter = express.Router();
 const path = require('path');
 const Account = require('../models/account');
+const AccountService = require('../services/accountService');
 
 apiRouter.get('/accounts', function(request, response) {
-  // TODO Add this as a custom function in account.js, or make an accountService
-  Account.find({}, function(error, accounts) {
-    if(error) throw error;
-    console.log(accounts);
+  AccountService.getAllAccounts(1).then(function(accounts) {
     response.json(accounts);
-  });
+  }), function(err) {
+    response.json(error);
+  }
 });
 
 apiRouter.post('/account/save', function(request, response) {

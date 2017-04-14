@@ -2,17 +2,17 @@
 
 <button ng-click="openCreateAccountModal()" type="button" name="button" class="btn btn-success">Add Account</button>
 
-<table st-table="accounts" st-safe-src="safeCollection" class="table table-striped">
+<table st-table="safeCollection" st-safe-src="accounts" class="table table-striped">
   <thead>
     <tr>
-      <th>Account Name</th>
-      <th>Type</th>
-      <th>Balance</th>
-      <th>Currency</th>
+      <th style="cursor: pointer" st-sort="name" st-skip-natural="true">Account Name</th>
+      <th style="cursor: pointer" st-sort="type" st-skip-natural="true">Type</th>
+      <th style="cursor: pointer" st-sort="balance" st-skip-natural="true">Balance</th>
+      <th style="cursor: pointer" st-sort="currency" st-skip-natural="true">Currency</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="account in accounts">
+    <tr ng-repeat="account in safeCollection">
       <td>{{account.name}}</td>
       <td>{{account.type}}</td>
       <td>{{account.balance | currency : '£'}}</td>

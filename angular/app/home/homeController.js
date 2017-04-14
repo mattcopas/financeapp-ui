@@ -1,4 +1,9 @@
-financeApp.controller('homeController', ['accountService', '$scope', '$rootScope', function(accountService, $scope, $rootScope) {
+financeApp.controller('homeController', [
+  'accountService',
+  '$scope',
+  '$rootScope',
+  '$uibModal',
+  function(accountService, $scope, $rootScope, $uibModal) {
 
   $scope.accounts = [];
 
@@ -8,5 +13,13 @@ financeApp.controller('homeController', ['accountService', '$scope', '$rootScope
   }, function errorCallBack(response) {
     console.log("Error getting data: ", response.data);
   });
+
+  $scope.openCreateAccountModal = function() {
+    var modalInstance = $uibModal.open({
+      windowTemplateUrl: '/static/node_modules/angular-ui-bootstrap/template/modal/window.html',
+      templateUrl: '/static/app/account/createAccountModal.html',
+      controller: 'createAccountModalController'
+    });
+  };
 
 }]);

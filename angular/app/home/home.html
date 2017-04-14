@@ -1,4 +1,6 @@
-<button type="button" name="button" class="btn btn-success center">Add Account</button>
+<h3>My Accounts</h3>
+
+<button ng-click="openCreateAccountModal()" type="button" name="button" class="btn btn-success">Add Account</button>
 
 <table st-table="accounts" st-safe-src="safeCollection" class="table table-striped">
   <thead>
@@ -16,6 +18,7 @@
       <td>{{account.balance | currency : '£'}}</td>
       <td>{{account.currency}}</td>
       <td><button type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
+      <td><button type="button" name="button" class="btn btn-primary">Edit</button></td>
       <td><button type="button" name="button" class="btn btn-danger"><i class="fa fa-times"></i></button></td>
     </tr>
   </tbody>

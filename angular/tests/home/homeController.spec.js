@@ -12,6 +12,7 @@ describe('The home controller', function() {
 
     module('financeApp');
 
+
     scope = {};
 
     inject(function($injector, $controller) {

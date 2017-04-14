@@ -17,7 +17,7 @@ describe('The Account Service', function() {
       $httpBackend = $injector.get('$httpBackend');
     });
 
-    accountsRequestHandler = $httpBackend.when('GET', 'http://localhost:8000/api/accounts?userId=1');
+    accountsRequestHandler = $httpBackend.when('GET', 'http://localhost:3000/api/accounts?userId=1');
 
     mockAccountsData = readJSON('tests/fixtures/accounts.json');
 

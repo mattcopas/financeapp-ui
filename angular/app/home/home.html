@@ -1,1 +1,22 @@
-Home page
+<button type="button" name="button" class="btn btn-success center">Add Account</button>
+
+<table st-table="accounts" st-safe-src="safeCollection" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Account Name</th>
+      <th>Type</th>
+      <th>Balance</th>
+      <th>Currency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="account in accounts">
+      <td>{{account.name}}</td>
+      <td>{{account.type}}</td>
+      <td>{{account.balance | currency : '£'}}</td>
+      <td>{{account.currency}}</td>
+      <td><button type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
+      <td><button type="button" name="button" class="btn btn-danger"><i class="fa fa-times"></i></button></td>
+    </tr>
+  </tbody>
+</table>

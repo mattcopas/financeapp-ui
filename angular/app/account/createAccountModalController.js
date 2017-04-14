@@ -2,7 +2,10 @@ financeApp.controller('createAccountModalController', [
   '$scope',
   'accountService',
 function($scope, accountService) {
+
+  $scope.account = {};
+
   $scope.submitCreateAccountForm = function() {
-    console.log("Form submitted:");
+    accountService.postCreateAccountData($scope.account);
   };
 }]);

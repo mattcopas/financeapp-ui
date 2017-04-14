@@ -7,4 +7,12 @@ financeApp.service('accountService', ['$http', function($http) {
     })
   };
 
+  this.postCreateAccountData = function(accountData) {
+    return $http({
+      method: 'POST',
+      url: appConfig.urls.api + 'account/save',
+      data: accountData
+    })
+  };
+
 }]);

@@ -5,6 +5,7 @@ var $httpBackend;
 var accountsRequestHandler;
 var mockAccountsData;
 var returnedAccountsData;
+var postAccountRequestHandler;
 
 describe('The Account Service', function() {
 
@@ -18,7 +19,7 @@ describe('The Account Service', function() {
     });
 
     accountsRequestHandler = $httpBackend.when('GET', 'http://localhost:3000/api/accounts?userId=1');
-
+    postAccountRequestHandler = $httpBackend.when('POST', 'http://localhost:3000/api/account/save');
     mockAccountsData = readJSON('tests/fixtures/accounts.json');
 
   });
@@ -68,6 +69,23 @@ describe('The Account Service', function() {
     });
 
 
+  });
+
+  describe('The post account function', function() {
+    beforeEach(function() {
+      postAccountRequestHandler.respond(302, {});
+    });
+
+    it('should send a post request to the backend api', function() {
+      accountService.postCreateAccountData({
+        name: 'Test Account',
+        balance: '100',
+        currency: 'USD',
+        type: 'Cash'
+      }).then(function(response) {
+        expect(response.statusCode).toBe(302);
+      })
+    });
   });
 
 });

@@ -23,4 +23,19 @@ describe('The account service', function() {
 
   });
 
+  it('should call the account model to save the account', function() {
+    var accountToSave = new Account({
+      name: 'Test Account',
+      type: 'Current',
+      balance: 30002,
+      currency: 'USD'
+    });
+
+    var stub = sinon.stub(accountToSave, 'save');
+
+    AccountService.addAccount(accountToSave);
+
+    sinon.assert.calledOnce(stub);
+  });
+
 });

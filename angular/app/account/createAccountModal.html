@@ -2,20 +2,22 @@
 
 <form ng-submit="submitCreateAccountForm()" class="">
   <div class="form-group">
-    <input class="form-control" type="text" name="name" value="" placeholder="Account Name" />
+    <input ng-model="account.name" class="form-control" type="text" name="name" value="" placeholder="Account Name" />
   </div>
   <div class="form-group">
-    <input class="form-control" type="text" name="balance" value="" placeholder="Current Balance" />
+    <input ng-model="account.balance" class="form-control" type="text" name="balance" value="" placeholder="Current Balance" />
   </div>
   <div class="form-group">
-    <select class="form-control" name="type" placeholder="Account Type">
+    <select ng-model="account.type" class="form-control" name="type" placeholder="Account Type">
+      <option value="" selected="selected">Account Type</option>
       <option value="Current">Current</option>
       <option value="ISA">ISA</option>
       <option value="Cash">Cash</option>
     </select>
   </div>
   <div class="form-group">
-    <select class="form-control" name="type" placeholder="Currency">
+    <select ng-model="account.currency" class="form-control" name="type" placeholder="Currency">
+      <option value="" selected="selected">Currency</option>
       <option value="GBP">GBP</option>
       <option value="USD">USD</option>
       <option value="EU">EU</option>

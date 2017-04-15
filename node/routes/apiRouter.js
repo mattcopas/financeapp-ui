@@ -38,11 +38,12 @@ apiRouter.delete('/account/delete', function(request, response) {
   console.log("Request  query: ", request.query);
   AccountService.deleteAccount(request.query.id).then(function(err, res) {
     if(err) {
-      response.json(err);
+      response.json(error);
       return err;
     }
     console.log("Record with id " + request.query.id +  ' deleted');
     response.status(200);
+    response.send('Account ' +  request.query.id + ' deleted');
   });
 });
 

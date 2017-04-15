@@ -27,12 +27,16 @@ financeApp.controller('homeController', [
   };
 
   $scope.deleteAccount = function(accountId) {
+    console.log("Running $scope.deleteAccount");
     accountService.deleteAccountById(accountId).then(function success(response) {
+      console.log("Inside then block");
       $scope.getAccounts();
     }, function errorCallBack(response) {
       console.log(response);
 
-    })
+    });
+
+    $scope.getAccounts();
 
   };
 

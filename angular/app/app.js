@@ -1,4 +1,10 @@
-var financeApp = angular.module('financeApp', ['ui.bootstrap', 'ngRoute', 'smart-table']);
+var financeApp = angular.module('financeApp', [
+  'ngSanitize',
+  'ui.bootstrap',
+  'ngRoute',
+  'smart-table',
+  'mwl.confirm'
+]);
 
 financeApp.config(function($routeProvider) {
   $routeProvider.when('/', {

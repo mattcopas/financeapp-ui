@@ -14,7 +14,9 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.3",
+    "angular-bootstrap-confirm": "^2.5.1",
     "angular-route": "^1.6.4",
+    "angular-sanitize": "^1.6.4",
     "angular-smart-table": "^2.1.8",
     "angular-ui-bootstrap": "^2.5.0",
     "grunt": "^1.0.1",

@@ -19,7 +19,7 @@
       <td>{{account.currency}}</td>
       <td><button type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
       <td><button type="button" name="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" name="button" class="btn btn-danger"><i class="fa fa-times"></i></button></td>
+      <td><button ng-click="deleteAccount(account._id)" type="button" name="button" class="btn btn-danger"><i class="fa fa-times"></i></button></td>
     </tr>
   </tbody>
 </table>

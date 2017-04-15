@@ -1,25 +1,41 @@
 financeApp.controller('homeController', [
   'accountService',
   '$scope',
-  '$rootScope',
   '$uibModal',
-  function(accountService, $scope, $rootScope, $uibModal) {
+  function(accountService, $scope, $uibModal) {
 
   $scope.accounts = [];
 
-  accountService.getAccountsByUserId(1).then(function success(response) {
+  $scope.getAccounts = function() {accountService.getAccountsByUserId(1).then(function success(response) {
     $scope.accounts = response.data;
-    console.log("$scope.accounts ", $scope.accounts);
-  }, function errorCallBack(response) {
-    console.log("Error getting data: ", response.data);
-  });
-
-  $scope.openCreateAccountModal = function() {
-    var modalInstance = $uibModal.open({
-      windowTemplateUrl: '/static/node_modules/angular-ui-bootstrap/template/modal/window.html',
-      templateUrl: '/static/app/account/createAccountModal.html',
-      controller: 'createAccountModalController'
+    }, function errorCallBack(response) {
+      console.log("Error getting data: ", response.data);
     });
   };
+
+  $scope.openCreateAccountModal = function() {
+    $scope.modalInstance = $uibModal.open({
+      windowTemplateUrl: '/static/node_modules/angular-ui-bootstrap/template/modal/window.html',
+      templateUrl: '/static/app/account/createAccountModal.html',
+      controller: 'createAccountModalController',
+      scope: $scope
+    });
+
+    $scope.modalInstance.closed.then(function() {
+      $scope.getAccounts();
+    });
+  };
+
+  $scope.deleteAccount = function(accountId) {
+    accountService.deleteAccountById(accountId).then(function success(response) {
+      $scope.getAccounts();
+    }, function errorCallBack(response) {
+      console.log(response);
+
+    })
+
+  };
+
+  $scope.getAccounts();
 
 }]);

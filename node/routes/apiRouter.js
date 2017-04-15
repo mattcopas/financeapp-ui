@@ -34,4 +34,16 @@ apiRouter.post('/account/save', function(request, response) {
   });
 });
 
+apiRouter.delete('/account/delete', function(request, response) {
+  console.log("Request  query: ", request.query);
+  AccountService.deleteAccount(request.query.id).then(function(err, res) {
+    if(err) {
+      response.json(err);
+      return err;
+    }
+    console.log("Record with id " + request.query.id +  ' deleted');
+    response.status(200);
+  });
+});
+
 module.exports = apiRouter;

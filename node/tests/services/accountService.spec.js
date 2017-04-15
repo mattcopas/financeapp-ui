@@ -38,4 +38,11 @@ describe('The account service', function() {
     sinon.assert.calledOnce(stub);
   });
 
+  it('should call the account model to delete an account', function() {
+    var stub = sinon.stub(Account, 'findByIdAndRemove');
+
+    AccountService.deleteAccount('123');
+    sinon.assert.calledOnce(stub);
+  });
+
 });

@@ -8,6 +8,10 @@ var AccountService = {
 
   addAccount:  function(account) {
       return account.save();
+  },
+
+  deleteAccount: function(id) {
+    return Account.findByIdAndRemove(id);
   }
 }
 

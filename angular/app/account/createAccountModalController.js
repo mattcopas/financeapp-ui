@@ -7,5 +7,6 @@ function($scope, accountService) {
 
   $scope.submitCreateAccountForm = function() {
     accountService.postCreateAccountData($scope.account);
+    $scope.modalInstance.close();
   };
 }]);

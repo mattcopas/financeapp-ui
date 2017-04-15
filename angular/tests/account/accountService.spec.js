@@ -6,6 +6,7 @@ var accountsRequestHandler;
 var mockAccountsData;
 var returnedAccountsData;
 var postAccountRequestHandler;
+var deleteAccountRequestHandler;
 
 describe('The Account Service', function() {
 
@@ -20,6 +21,8 @@ describe('The Account Service', function() {
 
     accountsRequestHandler = $httpBackend.when('GET', 'http://localhost:3000/api/accounts?userId=1');
     postAccountRequestHandler = $httpBackend.when('POST', 'http://localhost:3000/api/account/save');
+    deleteAccountRequestHandler = $httpBackend.when('GET', 'http://localhost:3000/api/account/delete');
+
     mockAccountsData = readJSON('tests/fixtures/accounts.json');
 
   });
@@ -73,7 +76,7 @@ describe('The Account Service', function() {
 
   describe('The post account function', function() {
     beforeEach(function() {
-      postAccountRequestHandler.respond(302, {});
+      postAccountRequestHandler.respond(302, 'Account added');
     });
 
     it('should send a post request to the backend api', function() {
@@ -84,7 +87,21 @@ describe('The Account Service', function() {
         type: 'Cash'
       }).then(function(response) {
         expect(response.statusCode).toBe(302);
+        expect(response.data).toBe('Account added');
       })
+    });
+  });
+
+  describe('The remove account function', function() {
+    beforeEach(function() {
+      deleteAccountRequestHandler.respond(200, 'Account deleted');
+    });
+
+    it('should send a delete request to the backend api', function() {
+      accountService.deleteAccountById(123).then(function(response) {
+        expect(response.statusCode).toBe(200);
+        expect(response.data).toBe('Account deleted');
+      });
     });
   });
 

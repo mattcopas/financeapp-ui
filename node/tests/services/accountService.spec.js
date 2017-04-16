@@ -15,11 +15,16 @@ describe('The account service', function() {
     done();
   });
 
-  it('should call the account model to get the accounts', function() {
-    var spy = sinon.spy(Account, 'findAll');
+  after(function() {
+    sinon.restore(Account);
+  });
 
+  it('should call the account model to get the accounts', function() {
+
+    var stub = sinon.stub(Account, 'findAll');
+    
     AccountService.getAllAccounts(1);
-    sinon.assert.calledOnce(spy);
+    sinon.assert.calledOnce(stub);
 
   });
 

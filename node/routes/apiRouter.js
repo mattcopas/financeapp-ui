@@ -18,7 +18,6 @@ apiRouter.get('/accounts', function(request, response) {
 
 apiRouter.post('/account/save', function(request, response) {
 
-  console.log(request);
   var account = Account.build({
     name: request.body.account.name,
     type: request.body.account.type,
@@ -26,19 +25,20 @@ apiRouter.post('/account/save', function(request, response) {
     balance: request.body.account.balance
   });
 
-  AccountService.addAccount(account).then(function(err, res) {
-    if(err) return err;
+  AccountService.addAccount(account).then(function(res) {
     console.log("Record saved");
     response.status(202);
     response.redirect('/');
-  });
+  }), function(err) {
+    response.json(err);
+  };
 });
 
 apiRouter.delete('/account/delete', function(request, response) {
   console.log("Request  query: ", request.query);
   AccountService.deleteAccount(request.query.id).then(function(err, res) {
     if(err) {
-      response.json(error);
+      response.json(err);
       return err;
     }
     console.log("Record with id " + request.query.id +  ' deleted');

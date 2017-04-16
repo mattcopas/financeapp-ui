@@ -1,20 +1,23 @@
-const Account = require('../models/account');
+var Account = require('../models/account');
 
 var AccountService = {
 
-  getAllAccounts: function(userId) {
-    return Account.findAll({
-      where: {}
-    });
-  },
-
   addAccount:  function(account) {
+      console.log("ADDING ACCOUNT");
       return account.save();
   },
 
   deleteAccount: function(id) {
     return Account.destroy({
-      id: id
+      where: {
+        id: id
+      }
+    });
+  },
+
+  getAllAccounts: function(userId) {
+    return Account.findAll({
+      where: {}
     });
   }
 }

@@ -3,7 +3,9 @@ const app = express();
 const apiRouter = express.Router();
 const path = require('path');
 const Account = require('../models/account');
+const Transaction = require('../models/transaction');
 const AccountService = require('../services/accountService');
+const TransactionService = require('../services/transactionService');
 const bodyParser = require('body-parser');
 
 apiRouter.use(bodyParser.json());
@@ -44,6 +46,23 @@ apiRouter.delete('/account/delete', function(request, response) {
     console.log("Record with id " + request.query.id +  ' deleted');
     response.status(200);
     response.send('Account ' +  request.query.id + ' deleted');
+  });
+});
+
+apiRouter.post('/transaction/save', function(request, response) {
+  console.log("Request body for adding transaction: ", request.body.transaction);
+  var transaction = Transaction.build({
+    name: request.body.transaction.name,
+    type: request.body.transaction.type,
+    amount: request.body.transaction.amount
+  });
+
+  TransactionService.addTransaction(transaction).then(function(res) {
+    response.status(200);
+    response.send('Transaction created');
+  }).catch(function(error) {
+    response.status(500);
+    response.json(error);
   });
 });
 

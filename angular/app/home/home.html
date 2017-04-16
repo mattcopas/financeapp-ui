@@ -20,13 +20,6 @@
       <td><button type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
       <td><button type="button" name="button" class="btn btn-primary">Edit</button></td>
       <td>
-        <!-- <button
-          ng-click="deleteAccount(account._id)"
-          type="button"
-          name="button"
-          class="btn btn-danger">
-          <i class="fa fa-times"></i>
-        </button> -->
 
         <button
           class="btn btn-danger"
@@ -36,7 +29,7 @@
           confirm-text="Delete"
           cancel-text="Cancel"
           placement="bottom"
-          on-confirm="deleteAccount(account.id)"
+          on-confirm="deleteAccount(account._id)"
           on-cancel="cancelClicked = true"
           confirm-button-type="danger"
           cancel-button-type="default">

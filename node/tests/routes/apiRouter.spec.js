@@ -2,6 +2,7 @@ var request = require('supertest');
 var server;
 var sinon = require('sinon');
 const accountService = require('../../services/accountService');
+const transactionService = require('../../services/transactionService');
 var Account = require('../../models/account');
 var sinonStubPromise = require('sinon-stub-promise')(sinon);
 
@@ -19,6 +20,7 @@ describe('The API Router', function() {
   after(function() {
     sinon.restore(Account);
     sinon.restore(accountService);
+    sinon.restore(transactionService);
   });
 
   it('should call the accountService to get accounts', function(done) {
@@ -61,6 +63,25 @@ describe('The API Router', function() {
     stub.returnsPromise().resolves([]);
     request(server)
       .delete('/api/account/delete?id=1')
+      .end(function(err, res) {
+        sinon.assert.calledOnce(stub);
+        done();
+      });
+  });
+
+  it('should call the transactionService to add a transaction', function(done) {
+    var stub = sinon.stub(transactionService, 'addTransaction');
+    stub.returnsPromise().resolves([]);
+
+    var transactionToSend = {
+      name: 'Test Transaction',
+      type: 'Income',
+      amount: 135.00
+    };
+
+    request(server)
+      .post('/api/transaction/save')
+      .send({transaction: transactionToSend})
       .end(function(err, res) {
         sinon.assert.calledOnce(stub);
         done();

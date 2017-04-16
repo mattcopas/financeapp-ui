@@ -15,6 +15,10 @@ connection.authenticate().then(function(err) {
   console.log("Connected to DB");
 });
 
+connection.sync().then(function() {
+  console.log("DB synced");
+});
+
 relationships();
 
 var server = app.listen(3000, function() {

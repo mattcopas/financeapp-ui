@@ -1,9 +1,9 @@
 var Account = require('../models/account');
+var Transaction = require('../models/transaction');
 
 var AccountService = {
 
   addAccount:  function(account) {
-      console.log("ADDING ACCOUNT");
       return account.save();
   },
 
@@ -17,6 +17,7 @@ var AccountService = {
 
   getAllAccounts: function(userId) {
     return Account.findAll({
+      include: [Transaction],
       where: {}
     });
   }

@@ -2,6 +2,7 @@ var server;
 var AccountService = require('../../services/accountService');
 var sinon = require('sinon');
 var Account = require('../../models/account');
+var sinonStubPromise = require('sinon-stub-promise')(sinon);
 
 describe('The account service', function() {
 
@@ -19,16 +20,18 @@ describe('The account service', function() {
     sinon.restore(Account);
   });
 
-  it('should call the account model to get the accounts', function() {
+  it('should call the account model to get the accounts', function(done) {
 
     var stub = sinon.stub(Account, 'findAll');
-    
-    AccountService.getAllAccounts(1);
-    sinon.assert.calledOnce(stub);
+    stub.returnsPromise().resolves([]);
+    AccountService.getAllAccounts(1).then(function(response) {
+      sinon.assert.calledOnce(stub);
+      done();
+    });
 
   });
 
-  it('should call the account model to save the account', function() {
+  it('should call the account model to save the account', function(done) {
     var accountToSave = Account.build({
       name: 'Test Account',
       type: 'Current',
@@ -37,17 +40,23 @@ describe('The account service', function() {
     });
 
     var stub = sinon.stub(accountToSave, 'save');
+    stub.returnsPromise().resolves([]);
 
-    AccountService.addAccount(accountToSave);
+    AccountService.addAccount(accountToSave).then(function(response) {
+      sinon.assert.calledOnce(stub);
+      done();
+    });
 
-    sinon.assert.calledOnce(stub);
   });
 
-  it('should call the account model to delete an account', function() {
+  it('should call the account model to delete an account', function(done) {
     var stub = sinon.stub(Account, 'destroy');
+    stub.returnsPromise().resolves([]);
+    AccountService.deleteAccount('123').then(function(response) {
+      sinon.assert.calledOnce(stub);
+      done();
+    });
 
-    AccountService.deleteAccount('123');
-    sinon.assert.calledOnce(stub);
   });
 
 });

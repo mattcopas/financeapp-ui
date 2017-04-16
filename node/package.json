@@ -14,7 +14,10 @@
     "gulp": "^3.9.1",
     "gulp-jasmine-node": "^1.0.7",
     "mongoose": "^4.9.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",

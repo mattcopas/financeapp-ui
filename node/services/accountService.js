@@ -3,7 +3,9 @@ const Account = require('../models/account');
 var AccountService = {
 
   getAllAccounts: function(userId) {
-    return Account.find({}).exec();
+    return Account.findAll({
+      where: {}
+    });
   },
 
   addAccount:  function(account) {
@@ -11,7 +13,9 @@ var AccountService = {
   },
 
   deleteAccount: function(id) {
-    return Account.findByIdAndRemove(id);
+    return Account.destroy({
+      id: id
+    });
   }
 }
 

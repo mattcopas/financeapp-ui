@@ -16,7 +16,7 @@ describe('The account service', function() {
   });
 
   it('should call the account model to get the accounts', function() {
-    var spy = sinon.spy(Account, 'find');
+    var spy = sinon.spy(Account, 'findAll');
 
     AccountService.getAllAccounts(1);
     sinon.assert.calledOnce(spy);
@@ -24,7 +24,7 @@ describe('The account service', function() {
   });
 
   it('should call the account model to save the account', function() {
-    var accountToSave = new Account({
+    var accountToSave = Account.build({
       name: 'Test Account',
       type: 'Current',
       balance: 30002,
@@ -39,7 +39,7 @@ describe('The account service', function() {
   });
 
   it('should call the account model to delete an account', function() {
-    var stub = sinon.stub(Account, 'findByIdAndRemove');
+    var stub = sinon.stub(Account, 'destroy');
 
     AccountService.deleteAccount('123');
     sinon.assert.calledOnce(stub);

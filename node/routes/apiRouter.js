@@ -19,7 +19,7 @@ apiRouter.get('/accounts', function(request, response) {
 apiRouter.post('/account/save', function(request, response) {
 
   console.log(request);
-  var account = new Account({
+  var account = Account.build({
     name: request.body.account.name,
     type: request.body.account.type,
     currency: request.body.account.currency,

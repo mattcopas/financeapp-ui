@@ -57,7 +57,7 @@ apiRouter.post('/transaction/save', function(request, response) {
     amount: request.body.transaction.amount
   });
 
-  TransactionService.addTransaction(transaction).then(function(res) {
+  TransactionService.addTransaction(transaction, request.body.accountId).then(function(res) {
     response.status(200);
     response.send('Transaction created');
   }).catch(function(error) {

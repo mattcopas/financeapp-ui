@@ -35,7 +35,6 @@ describe('The create account modal controller', function() {
   });
 
   it('should call the accountService when the account creation form is submitted', function() {
-    //console.log('Modal instance in test ', $rootScope.modalInstance);
     scope.submitCreateAccountForm(scope.account);
     expect(accountService.postCreateAccountData).toHaveBeenCalledWith(scope.account);
   });

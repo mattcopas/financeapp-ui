@@ -26,7 +26,8 @@ financeApp.controller('homeController', [
     });
   };
 
-  $scope.openCreateTransactionModal = function() {
+  $scope.openCreateTransactionModal = function(account) {
+    $scope.account = account;
     $scope.modalInstance = $uibModal.open({
       windowTemplateUrl: '/static/node_modules/angular-ui-bootstrap/template/modal/window.html',
       templateUrl: '/static/app/transaction/createTransactionModal.html',

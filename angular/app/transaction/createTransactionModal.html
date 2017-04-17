@@ -1,1 +1,17 @@
-<h2>Create transaction modal</h2>
+<h4>Create Transaction for {{account.name}}</h4>
+
+<form novalidate ng-submit="submitAddTransactionForm()">
+  <div class="form-group">
+    <input placeholder="Name" type="text" name="name" class="form-control" ng-model="transaction.name" />
+  </div>
+  <div class="form-group">
+    <select class="form-control" name="type" ng-model="transaction.type">
+      <option value="" selected="selected">Transaction Type</option>
+      <option value="Income">Income</option>
+      <option value="Expense">Expense</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input placeholder="Amount" type="number" name="amount" ng-model="transaction.amount" class="form-control"/>
+  </div>
+</form>

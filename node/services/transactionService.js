@@ -6,6 +6,7 @@ var TransactionService = {
   addTransaction: function(transaction, accountId) {
     var that = this;
     return connection.transaction(function(t) {
+
       return transaction.save({transaction: t})
         .then(function(transaction) {
           return Account.findById(accountId, {transaction: t})
@@ -19,6 +20,7 @@ var TransactionService = {
                 });
             });
         });
+
     }).then(function(result) {
       console.log("Transaction commited");
     }).catch(function(err) {
@@ -36,7 +38,8 @@ var TransactionService = {
     }
     return Account.update({
       balance: newBalance
-    }, {
+    },
+    {
       where: {
         id: accountId
       },
@@ -45,7 +48,6 @@ var TransactionService = {
   },
 
   getAccountFromAccountTransaction: function(accountTransaction, t) {
-    console.log("accountTransaction[0][0]: ", accountTransaction);
     return Account.findById(accountTransaction[0][0].dataValues.accountId, {transaction: t});
   }
 }

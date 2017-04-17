@@ -26,6 +26,19 @@ financeApp.controller('homeController', [
     });
   };
 
+  $scope.openCreateTransactionModal = function() {
+    $scope.modalInstance = $uibModal.open({
+      windowTemplateUrl: '/static/node_modules/angular-ui-bootstrap/template/modal/window.html',
+      templateUrl: '/static/app/transaction/createTransactionModal.html',
+      controller: 'createTransactionModalController',
+      scope: $scope
+    });
+
+    $scope.modalInstance.closed.then(function() {
+      $scope.getAccounts();
+    });
+  }
+
   $scope.deleteAccount = function(accountId) {
     console.log("Running $scope.deleteAccount");
     accountService.deleteAccountById(accountId).then(function success(response) {

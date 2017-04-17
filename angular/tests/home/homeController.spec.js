@@ -50,4 +50,9 @@ describe('The home controller', function() {
     expect(uibModal.open).toHaveBeenCalled();
   });
 
+  it('should call $uibModal.open to open the createTransactionModal', function() {
+    scope.openCreateTransactionModal();
+    expect(uibModal.open).toHaveBeenCalled();
+  });
+
 });

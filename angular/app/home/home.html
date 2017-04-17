@@ -17,7 +17,7 @@
       <td>{{account.type}}</td>
       <td>{{account.balance | currency : '£'}}</td>
       <td>{{account.currency}}</td>
-      <td><button type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
+      <td><button ng-click="openCreateTransactionModal()" type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
       <td><button type="button" name="button" class="btn btn-primary">Edit</button></td>
       <td>
 

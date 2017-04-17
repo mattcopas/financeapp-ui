@@ -5,6 +5,7 @@ var scope;
 var accountService;
 var mockAccountsResponse;
 var $httpBackend;
+var uibModal;
 
 describe('The home controller', function() {
 
@@ -18,8 +19,10 @@ describe('The home controller', function() {
     inject(function($injector, $controller) {
       $httpBackend = $injector.get('$httpBackend');
       accountService = $injector.get('accountService');
+      uibModal = $injector.get('$uibModal');
       spyOn(accountService, 'getAccountsByUserId').and.callThrough();
       spyOn(accountService, 'deleteAccountById').and.callThrough();
+      spyOn(uibModal, 'open').and.callThrough();
 
       mockAccountsResponse = $httpBackend.when('GET', 'http://localhost:8000/api/accounts?id=1');
       mockAccountsResponse.respond(200, {});
@@ -40,6 +43,11 @@ describe('The home controller', function() {
 
   it('should assign the accounts for a user to $scope', function() {
     expect(scope.accounts).toBeDefined();
+  });
+
+  it('should call $uibModal.open to open the createAccountModal', function() {
+    scope.openCreateAccountModal();
+    expect(uibModal.open).toHaveBeenCalled();
   });
 
 });

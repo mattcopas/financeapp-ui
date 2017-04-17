@@ -20,6 +20,7 @@ describe('The Transaction Service', function() {
   after(function() {
     sinon.restore(Transaction);
     sinon.restore(Account);
+    sinon.restore(transactionService);
   });
 
   it('should call the Transaction model when adding a transaction', function(done) {
@@ -40,6 +41,11 @@ describe('The Transaction Service', function() {
 
     var stub = sinon.stub(transactionToSave, 'save');
     var findAccountByIdStub = sinon.stub(Account, 'findById');
+    var updateAccountBalanceStub = sinon.stub(transactionService, 'updateAccountBalance');
+    var fakeAccountAddTransactionStub = sinon.stub(fakeAccount, 'addTransaction');
+
+    fakeAccountAddTransactionStub.returnsPromise().resolves([[{dataValues: {}}]]);
+    updateAccountBalanceStub.returnsPromise().resolves(fakeAccount);
     findAccountByIdStub.returnsPromise().resolves(fakeAccount);
     stub.returnsPromise().resolves([]);
 

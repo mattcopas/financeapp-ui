@@ -6,7 +6,7 @@ var Account = connection.define('account', {
     type: Sequelize.STRING
   },
   type: {
-    type: Sequelize.STRING
+    type: Sequelize.ENUM('Current', 'Saving', 'ISA', 'Cash')
   },
   currency: {
     type: Sequelize.STRING

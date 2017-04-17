@@ -6,7 +6,7 @@ var Transaction = connection.define('transaction', {
     type: Sequelize.STRING
   },
   type: {
-    type: Sequelize.STRING
+    type: Sequelize.ENUM('Income', 'Expense', 'Transfer')
   },
   amount: {
     type: Sequelize.FLOAT

@@ -19,17 +19,18 @@ describe('The Account Service', function() {
       $httpBackend = $injector.get('$httpBackend');
     });
 
-    accountsRequestHandler = $httpBackend.when('GET', 'http://localhost:3000/api/accounts?userId=1');
-    postAccountRequestHandler = $httpBackend.when('POST', 'http://localhost:3000/api/account/save');
-    deleteAccountRequestHandler = $httpBackend.when('GET', 'http://localhost:3000/api/account/delete');
-
     mockAccountsData = readJSON('tests/fixtures/accounts.json');
 
+  });
+
+  afterEach(function() {
+    $httpBackend.flush();
   });
 
   describe('Accounts', function() {
 
     beforeEach(function() {
+      accountsRequestHandler = $httpBackend.expect('GET', 'http://localhost:3000/api/accounts?id=1');
       accountsRequestHandler.respond(mockAccountsData);
 
     });
@@ -49,7 +50,7 @@ describe('The Account Service', function() {
 
     it('should have an account type', function() {
       accountService.getAccountsByUserId(1).then(function(response) {
-        expect(response.data[0].name).toBe('Current');
+        expect(response.data[0].name).toBe('Account 1');
       });
     });
 
@@ -76,7 +77,8 @@ describe('The Account Service', function() {
 
   describe('The post account function', function() {
     beforeEach(function() {
-      postAccountRequestHandler.respond(302, 'Account added');
+      postAccountRequestHandler = $httpBackend.expect('POST', 'http://localhost:3000/api/account/save');
+      postAccountRequestHandler.respond(200, 'Account added');
     });
 
     it('should send a post request to the backend api', function() {
@@ -86,22 +88,25 @@ describe('The Account Service', function() {
         currency: 'USD',
         type: 'Cash'
       }).then(function(response) {
-        expect(response.statusCode).toBe(302);
+        expect(response.status).toBe(200);
         expect(response.data).toBe('Account added');
-      })
+      });
+
     });
   });
 
   describe('The remove account function', function() {
     beforeEach(function() {
+      deleteAccountRequestHandler = $httpBackend.expect('DELETE', 'http://localhost:3000/api/account/delete?id=123');
       deleteAccountRequestHandler.respond(200, 'Account deleted');
     });
 
     it('should send a delete request to the backend api', function() {
       accountService.deleteAccountById(123).then(function(response) {
-        expect(response.statusCode).toBe(200);
+        expect(response.status).toBe(200);
         expect(response.data).toBe('Account deleted');
       });
+
     });
   });
 

@@ -20,7 +20,7 @@ financeApp.service('accountService', ['$http', function($http) {
   this.deleteAccountById = function(accountId) {
     return $http({
       method: 'DELETE',
-      url: appConfig.urls.api + '/account/delete?id=' + accountId
+      url: appConfig.urls.api + 'account/delete?id=' + accountId
     })
   };
 

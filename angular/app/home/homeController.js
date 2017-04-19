@@ -1,15 +1,16 @@
 financeApp.controller('homeController', [
   'accountService',
+  'transactionService',
   '$scope',
   '$uibModal',
-  function(accountService, $scope, $uibModal) {
+  function(accountService, transactionService, $scope, $uibModal) {
 
   $scope.accounts = [];
   $scope.transactions = [];
 
   $scope.getAccounts = function() {accountService.getAccountsByUserId(1).then(function success(response) {
     $scope.accounts = response.data;
-    accountService.parseTransactionData($scope.accounts);
+    $scope.transactions = transactionService.parseTransactionData($scope.accounts);
     }, function errorCallBack(response) {
       console.log("Error getting data: ", response.data);
     });

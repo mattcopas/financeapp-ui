@@ -4,6 +4,33 @@
     "type":"Current",
     "currency":"GBP",
     "balance":"100.00",
-    "transactions": []
+    "transactions": [
+      {
+        "name":"First Transaction",
+        "type":"Expense",
+        "amount":145,
+        "createdAt":"2017-04-17T13:26:50.281Z",
+        "updatedAt":"2017-04-17T13:26:50.281Z",
+        "AccountTransaction":{
+          "createdAt":"2017-04-17T13:26:50.281Z",
+          "updatedAt":"2017-04-17T13:26:50.281Z",
+          "accountId":2,
+          "transactionId":1
+        }
+      },
+      {
+        "name":"Second Transaction",
+        "type":"Income",
+        "amount":120,
+        "createdAt":"2017-04-18T14:26:50.281Z",
+        "updatedAt":"2017-04-18T14:26:50.281Z",
+        "AccountTransaction":{
+          "createdAt":"2017-04-18T14:26:50.281Z",
+          "updatedAt":"2017-04-18T14:26:50.281Z",
+          "accountId":2,
+          "transactionId":2
+        }
+      }
+    ]
   }
 ]

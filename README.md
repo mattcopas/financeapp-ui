@@ -1,7 +1,3 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
 ## TODO ##
 
 ### Add Transactions Table ###
@@ -14,6 +10,10 @@ This README would normally document whatever steps are necessary to get your app
 ### Design graphs for overall statistics ###
 ### Design graphs for account statistics ###
 ### API Authentication/login ###
+
+# README #
+
+This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 

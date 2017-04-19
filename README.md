@@ -7,6 +7,8 @@
 ### Filter Income/Expenses tables by a/c ###
 ### Filter Transactions table by a/c ###
 ### Add repeating transactions ###
+### Cancel transactions ###
+### Edit transanctions ###
 ### Design graphs for overall statistics ###
 ### Design graphs for account statistics ###
 ### API Authentication/login ###

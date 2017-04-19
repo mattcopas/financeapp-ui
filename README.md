@@ -2,6 +2,19 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
+## TODO ##
+
+### Add Transactions Table ###
+### Add Income/Expenses Table ###
+### Form validations (Frontend) ###
+### Server side validation ###
+### Filter Income/Expenses tables by a/c ###
+### Filter Transactions table by a/c ###
+### Add repeating transactions ###
+### Design graphs for overall statistics ###
+### Design graphs for account statistics ###
+### API Authentication/login ###
+
 ### What is this repository for? ###
 
 * Quick summary

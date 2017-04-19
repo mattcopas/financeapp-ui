@@ -5,9 +5,11 @@ financeApp.controller('homeController', [
   function(accountService, $scope, $uibModal) {
 
   $scope.accounts = [];
+  $scope.transactions = [];
 
   $scope.getAccounts = function() {accountService.getAccountsByUserId(1).then(function success(response) {
     $scope.accounts = response.data;
+    accountService.parseTransactionData($scope.accounts);
     }, function errorCallBack(response) {
       console.log("Error getting data: ", response.data);
     });

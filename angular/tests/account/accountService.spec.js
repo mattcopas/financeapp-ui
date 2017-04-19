@@ -81,46 +81,7 @@ describe('The Account Service', function() {
 
     });
 
-    describe('Parsing transaction data', function() {
-
-      beforeEach(function() {
-        parsedTransactionData = accountService.parseTransactionData(mockAccountsData);
-      });
-
-      it('should give an array of transactions', function() {
-        expect(parsedTransactionData.length).toBe(2);
-      });
-
-      describe('A parsed transaction', function() {
-
-        it('should have a name', function() {
-          expect(parsedTransactionData[0].name).toBe("First Transaction");
-          expect(parsedTransactionData[1].name).toBe("Second Transaction");
-        });
-
-        it('should have an account name', function() {
-          expect(parsedTransactionData[0].accountName).toBe("Account 1");
-          expect(parsedTransactionData[1].accountName).toBe("Account 1");
-        });
-
-        it('should have a type', function() {
-          expect(parsedTransactionData[0].type).toBe("Expense");
-          expect(parsedTransactionData[1].type).toBe("Income");
-        });
-
-        it('should have an amount', function() {
-          expect(parsedTransactionData[0].amount).toBe(145);
-          expect(parsedTransactionData[1].amount).toBe(120);
-        });
-
-        it('should have a date', function() {
-          expect(parsedTransactionData[0].date).toBe("2017-04-17T13:26:50.281Z");
-          expect(parsedTransactionData[1].date).toBe("2017-04-18T14:26:50.281Z");
-        });
-
-      });
-
-    });
+  
 
 
   });

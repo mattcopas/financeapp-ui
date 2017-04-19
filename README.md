@@ -1,6 +1,6 @@
 ## TODO ##
 
-### Add Transactions Table ###
+### Add dynamic currency symbols ###
 ### Add Income/Expenses Table ###
 ### Form validations (Frontend) ###
 ### Server side validation ###

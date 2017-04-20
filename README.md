@@ -4,16 +4,15 @@
 ### E2E Protractor Tests ###
 ### Add dynamic currency symbols ###
 ### Add Income/Expenses Table ###
+### Filter Income/Expenses tables by a/c ###
 ### Form validations (Frontend) ###
 ### Server side validation ###
-### Filter Income/Expenses tables by a/c ###
-### Filter Transactions table by a/c ###
 ### Add repeating transactions ###
 ### Cancel transactions ###
 ### Edit transanctions ###
+### API Authentication/login ###
 ### Design graphs for overall statistics ###
 ### Design graphs for account statistics ###
-### API Authentication/login ###
 
 # README #
 

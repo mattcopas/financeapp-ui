@@ -1,9 +1,17 @@
-<h3>My Accounts</h3>
+<h3>My Accounts Summary</h3>
 
 <button ng-click="openCreateAccountModal()" type="button" name="button" class="btn btn-success">Add Account</button>
 
 <table st-table="safeCollection" st-safe-src="accounts" class="table table-striped">
   <thead>
+    <tr>
+      <th>
+        <input st-search="type" class="input-sm form-control" type="search" placeholder="Filter by Account Type"/>
+      </th>
+      <th>
+        <input st-search="currency" class="input-sm form-control" type="search" placeholder="Filter by Currency"/>
+      </th>
+    </tr>
     <tr>
       <th style="cursor: pointer" st-sort="name" st-skip-natural="true">Account Name</th>
       <th style="cursor: pointer" st-sort="type" st-skip-natural="true">Type</th>
@@ -41,10 +49,21 @@
   </tbody>
 </table>
 
-<h3>My Transactions</h3>
+<h3>My Transactions Summary</h3>
 
 <table st-table="safeTransactionsCollection" st-safe-src="transactions" class="table table-striped">
   <thead>
+    <tr>
+      <th>
+        <input st-search="accountName" class="input-sm form-control" type="search" placeholder="Filter by Account Name"/>
+      </th>
+      <th>
+        <input st-search="name" class="input-sm form-control" type="search" placeholder="Filter by Transaction Name"/>
+      </th>
+      <th>
+        <input st-search="type" class="input-sm form-control" type="search" placeholder="Filter by Transaction Type"/>
+      </th>
+    </tr>
     <tr>
       <th style="cursor: pointer" st-sort="name" st-skip-natural="true">Name</th>
       <th style="cursor: pointer" st-sort="type" st-skip-natural="true">Type</th>

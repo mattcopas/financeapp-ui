@@ -1,6 +1,4 @@
 ## TODO ##
-
-### Tidy up db transactions: http://docs.sequelizejs.com/en/latest/docs/transactions/#unmanaged-transaction-then-callback ###
 ### Add proper logging for Node ###
 ### Add proper logging for angular ###
 ### setup env variables for dev/test/prod ###

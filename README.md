@@ -1,7 +1,8 @@
 ## TODO ##
+### E2E Protractor Tests ###
+#### Setup and Teardown ####
 ### Add proper logging for Node ###
 ### Add proper logging for angular ###
-### E2E Protractor Tests ###
 ### Add dynamic currency symbols ###
 ### Add Income/Expenses Table ###
 ### Filter Income/Expenses tables by a/c ###

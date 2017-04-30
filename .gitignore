@@ -6,6 +6,9 @@ node/node_modules
 .log
 docs
 .env
+dev.env
+testEnvironment.json
+devEnvironment.json
 npm-debug.log
 .nyc_output
 angular/built

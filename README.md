@@ -1,7 +1,6 @@
 ## TODO ##
 ### Add proper logging for Node ###
 ### Add proper logging for angular ###
-### setup env variables for dev/test/prod ###
 ### E2E Protractor Tests ###
 ### Add dynamic currency symbols ###
 ### Add Income/Expenses Table ###

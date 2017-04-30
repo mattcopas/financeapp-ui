@@ -4,28 +4,28 @@ var Account = require('../models/account');
 var TransactionService = {
 
   addTransaction: function(transaction, accountId) {
-    var that = this;
+    var self = this;
     return connection.transaction(function(t) {
-
       return transaction.save({transaction: t})
-        .then(function(transaction) {
-          return Account.findById(accountId, {transaction: t})
-            .then(function(account) {
-              return account.addTransaction(transaction, {transaction: t})
-                .then(function(accountTransaction) {
-                  return that.getAccountFromAccountTransaction(accountTransaction, t)
-                    .then(function(account) {
-                      return that.updateAccountBalance(account.balance, transaction, account.id, t)
-                    })
-                });
-            });
-        });
-
-    }).then(function(result) {
+      .then(function(transaction) {
+        return Account.findById(accountId, {transaction: t})
+      })
+      .then(function(account) {
+        return account.addTransaction(transaction, {transaction: t})
+      })
+      .then(function(accountTransaction) {
+        return self.getAccountFromAccountTransaction(accountTransaction, t)
+      })
+      .then(function(account) {
+        return self.updateAccountBalance(account.balance, transaction, account.id, t)
+      })
+    })
+    .then(function(result) {
       console.log("Transaction commited");
-    }).catch(function(err) {
+    })
+    .catch(function(err) {
       console.log("Transaction error: ", err);
-    });
+    })
   },
 
   updateAccountBalance: function(initialBalance, transaction, accountId, t) {

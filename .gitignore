@@ -1,6 +1,5 @@
 .DS_Store
-angular/node_modules
-node/node_modules
+*/node_modules
 .tmp
 .idea
 .log

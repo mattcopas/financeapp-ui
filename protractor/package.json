@@ -1,0 +1,15 @@
+{
+  "name": "FinanceApp-Protractor-Tests",
+  "version": "1.0.0",
+  "description": "Protractor tests for FinanceApp",
+  "main": "config.js",
+  "scripts": {
+    "startWebDriverServer":"bash startWebDriverServer.sh",
+    "test": "protractor config.js"
+  },
+  "author": "Matt Copas",
+  "license": "ISC",
+  "dependencies": {
+    "protractor": "^5.1.1"
+  }
+}

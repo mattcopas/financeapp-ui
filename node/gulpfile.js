@@ -6,7 +6,7 @@ var nodemon = require('gulp-nodemon');
 
 gulp.task('nodemon', function() {
   env({
-    file: './devEnvironment.json'
+    file: './testEnvironment.json'
   })
   nodemon({
     script: './server.js',

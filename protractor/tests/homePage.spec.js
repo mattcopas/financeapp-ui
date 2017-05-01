@@ -32,8 +32,7 @@ describe('The Home Page', function() {
   it('should add a new acconut when the add account form is submitted', function() {
     homePage.clickAddAccountButton();
     addAccountModal.submitAddAccountForm('Test Account 1', 100, 'Current', 'GBP');
-    // browser.driver.sleep(3000);
-    // expect(homePage.getFirstAccountCellTextValues()).toEqual(['Test Account', 100, 'Current', 'GBP']);
+    expect(homePage.getFirstAccountCellTextValues()).toEqual(['Test Account 1', 'Current', '£100.00', 'GBP', 'Make Transaction', 'Edit']);
 
   });
 

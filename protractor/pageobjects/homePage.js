@@ -1,3 +1,6 @@
+const TableUtil = require('../utils/table');
+const tableUtil = new TableUtil();
+
 module.exports = function() {
 
   this.title = browser.getTitle();
@@ -9,20 +12,8 @@ module.exports = function() {
   };
 
   this.getFirstAccountCellTextValues = function() {
-    var cells = this.getAccountsTableData('account').first().all(by.tagName('td'));
-    console.log("CELLS: ", cells);
-    var cellTexts = [];
-    for(var i = 0; i < cells.length; i++) {
-      cells[i].getText().then(function(text, done) {
-        cellTexts.push(text);
-        done();
-      })
-    }
-    return cellTexts;
+    var cells = tableUtil.getTableRows('account', 'safeCollection').first().all(by.tagName('td'));
+    return tableUtil.getCellTextValues(cells);
   }
 
-  this.getAccountsTableData = function(tableDataType) {
-    var tableRows = element.all(by.repeater(tableDataType + ' in safeCollection'));
-    return tableRows;
-  }
 };

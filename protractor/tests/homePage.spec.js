@@ -3,6 +3,7 @@ const AddAccountModal = require('../pageobjects/addAccountModal');
 const MakeTransactionModal = require('../pageobjects/makeTransactionModal');
 const dbSetup = require('../setup/dbSetup');
 const moment = require('moment');
+const protractorHelpers = require('protractor-helpers');
 var homePage;
 var addAccountModal;
 var makeTransactionModal;
@@ -11,7 +12,7 @@ describe('The Home Page', function() {
 
   beforeEach(function() {
     dbSetup();
-    browser.get('http://localhost:3000');
+    protractorHelpers.safeGet('http://localhost:3000');
 
     homePage = new HomePage();
     addAccountModal = new AddAccountModal();
@@ -42,7 +43,6 @@ describe('The Home Page', function() {
   it('should show a Make Transaction Modal when a Make Transaction button is clicked', function() {
     homePage.clickAddAccountButton();
     addAccountModal.submitAddAccountForm('Test Account 1', 100, 'Current', 'GBP');
-    browser.sleep(1000);
     homePage.clickMakeTransactionButton();
     expect(homePage.makeTransactionModal.isDisplayed()).toBeTruthy();
   });
@@ -50,7 +50,6 @@ describe('The Home Page', function() {
   it('should add a transaction to the transactions table', function() {
     homePage.clickAddAccountButton();
     addAccountModal.submitAddAccountForm('Test Account 1', 100, 'Current', 'GBP');
-    browser.sleep(1000);
     homePage.clickMakeTransactionButton();
     makeTransactionModal.submitMakeTransactionForm('Test Transaction 1', 'Income', 50);
     var todaysDate = moment().format('MMMM D, YYYY');

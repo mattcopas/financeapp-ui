@@ -1,5 +1,6 @@
 const TableUtil = require('../utils/table');
 const tableUtil = new TableUtil();
+const protractorHelpers = require('protractor-helpers');
 
 module.exports = function() {
 
@@ -14,6 +15,7 @@ module.exports = function() {
   };
 
   this.clickMakeTransactionButton = function() {
+    protractorHelpers.waitForElement(this.firstMakeTransactionButton, 3000);
     this.firstMakeTransactionButton.click();
   };
 

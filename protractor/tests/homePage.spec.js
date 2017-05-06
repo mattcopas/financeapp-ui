@@ -57,4 +57,29 @@ describe('The Home Page', function() {
     expect(homePage.getFirstAccountCellTextValues()).toEqual(['Test Account 1', 'Current', '£150.00', 'GBP', 'Make Transaction', 'Edit']);
   });
 
+  describe('Deleting an account', function() {
+
+    beforeEach(function() {
+      homePage.clickAddAccountButton();
+      addAccountModal.submitAddAccountForm('Test Account 1', 100, 'Current', 'GBP');
+    });
+
+    it('should remove the account from the accounts table', function() {
+      homePage.clickDeleteAccountButton();
+      homePage.clickConfirmDeleteAcconutButton();
+      homePage.getNumberOfRowsInAccountsTable().then(function(numberOfRowsInAccountsTable) {
+        expect(numberOfRowsInAccountsTable).toEqual(0);
+      });
+    });
+
+    it('should remove the transactions from the transactions table', function() {
+      homePage.clickDeleteAccountButton();
+      homePage.clickConfirmDeleteAcconutButton();
+      homePage.getNumberOfRowsInTransactionsTable().then(function(numberOfRowsInTransactionsTable) {
+        expect(numberOfRowsInTransactionsTable).toEqual(0);
+      })
+    });
+
+  });
+
 });

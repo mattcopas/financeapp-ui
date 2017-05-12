@@ -5,6 +5,7 @@ const apiRouter = require('./routes/apiRouter');
 const connection = require('./database/connection');
 const path = require('path');
 const relationships = require('./models/relationships');
+const logger = require('./logger/logger');
 
 app.use('/', router);
 app.use('/api/', apiRouter);
@@ -12,17 +13,17 @@ app.use('/static/', express.static(path.resolve('../angular')));
 
 connection.authenticate().then(function(err) {
   if(err) throw err;
-  console.log("Connected to DB");
+  logger.info("Connected to DB");
 });
 
 relationships();
 
 connection.sync().then(function() {
-  console.log("DB synced");
+  logger.info("DB synced");
 });
 
 var server = app.listen(3000, function() {
-  console.log("Server listening");
+  logger.info("Server listening");
 });
 
 module.exports = server;

@@ -11,6 +11,10 @@ module.exports = function() {
   this.makeTransactionModal = element(by.css('.modal-dialog'));
   this.firstDeleteAccountButton = element(by.css('.fa-times'));
   this.confirmDeleteAccountButton = element(by.buttonText('Delete'));
+  this.accountsTableFilters = {
+    accountType: element(by.css('input[st-search=type]')),
+    currency: element(by.css('input[st-search=currency]'))
+  }
 
   this.clickAddAccountButton = function() {
     this.addAccountButton.click();
@@ -45,8 +49,17 @@ module.exports = function() {
   this.getNumberOfRowsInAccountsTable = function() {
     return tableUtil.getTableRows('account', 'safeCollection').all().count();
   };
+  
   this.getNumberOfRowsInTransactionsTable = function() {
     return tableUtil.getTableRows('transaction', 'safeCollection').all().count();
+  };
+
+  this.filterAccountsTableByAccountType = function(searchValue) {
+    this.accountsTableFilters.accountType.sendKeys(searchValue);
+  };
+
+  this.filterAccountsTableByCurrency = function(searchValue) {
+    this.accountsTableFilters.currency.sendKeys(searchValue);
   };
 
 };

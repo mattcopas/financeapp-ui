@@ -73,12 +73,45 @@ describe('The Home Page', function() {
     });
 
     it('should remove the transactions from the transactions table', function() {
+      homePage.clickMakeTransactionButton();
+      makeTransactionModal.submitMakeTransactionForm('Test Transaction 1', 'Income', 50);
       homePage.clickDeleteAccountButton();
       homePage.clickConfirmDeleteAcconutButton();
       homePage.getNumberOfRowsInTransactionsTable().then(function(numberOfRowsInTransactionsTable) {
         expect(numberOfRowsInTransactionsTable).toEqual(0);
       })
     });
+
+  });
+
+  describe('Filtering the accounts table', function() {
+    beforeEach(function() {
+      homePage.clickAddAccountButton();
+      addAccountModal.submitAddAccountForm('Test Account 1', 100, 'Current', 'GBP');
+      addAccountModal.submitAddAccountForm('Test Account 2', 100, 'ISA', 'USD');
+    });
+
+    // it('should filter by account type', function() {
+    //   homePage.filterAccountsTableByAccountType('Current');
+    //   expect(homePage.getFirstAccountCellTextValues()).toEqual(['Test Account 1', 'Current', '£100.00', 'GBP', 'Make Transaction', 'Edit']);
+    //   homePage.getNumberOfRowsInAccountsTable().then(function(numberOfRowsInAccountsTable) {
+    //     expect(numberOfRowsInAccountsTable).toEqual(1);
+    //   });
+    // });
+    //
+    // it('should remove all table rows when a non existent account type is searched', function() {
+    //   homePage.filterAccountsTableByAccountType('Not An Account Type');
+    //   homePage.getNumberOfRowsInAccountsTable().then(function(numberOfRowsInAccountsTable) {
+    //     expect(numberOfRowsInAccountsTable).toEqual(0);
+    //   });
+    // });
+    //
+    // it('should remove all table rows when a non existent currency is searched', function() {
+    //   homePage.filterAccountsTableByCurrency('Not An Account Type');
+    //   homePage.getNumberOfRowsInAccountsTable().then(function(numberOfRowsInAccountsTable) {
+    //     expect(numberOfRowsInAccountsTable).toEqual(0);
+    //   });
+    // });
 
   });
 

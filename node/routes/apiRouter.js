@@ -28,7 +28,7 @@ apiRouter.post('/account/save', function(request, response) {
   });
 
   AccountService.addAccount(account).then(function(res) {
-    console.log("Record saved");
+    logger.info("Record saved");
     response.status(202);
     response.redirect('/');
   }), function(err) {
@@ -37,20 +37,20 @@ apiRouter.post('/account/save', function(request, response) {
 });
 
 apiRouter.delete('/account/delete', function(request, response) {
-  console.log("Request  query: ", request.query);
+  logger.info("Request  query: ", request.query);
   AccountService.deleteAccount(request.query.id).then(function(err, res) {
     if(err) {
       response.json(err);
       return err;
     }
-    console.log("Record with id " + request.query.id +  ' deleted');
+    logger.info("Record with id " + request.query.id +  ' deleted');
     response.status(200);
     response.send('Account ' +  request.query.id + ' deleted');
   });
 });
 
 apiRouter.post('/transaction/save', function(request, response) {
-  console.log("Request body for adding transaction: ", request.body.transaction);
+  logger.info("Request body for adding transaction: ", request.body.transaction);
   var transaction = Transaction.build({
     name: request.body.transaction.name,
     type: request.body.transaction.type,

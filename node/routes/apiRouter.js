@@ -7,6 +7,7 @@ const Transaction = require('../models/transaction');
 const AccountService = require('../services/accountService');
 const TransactionService = require('../services/transactionService');
 const bodyParser = require('body-parser');
+const logger = require('../logger/logger');
 
 apiRouter.use(bodyParser.json());
 

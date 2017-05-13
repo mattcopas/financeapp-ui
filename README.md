@@ -1,4 +1,5 @@
 ## TODO ##
+### Set up minikube cluster for local development ###
 ### E2E Protractor Tests ###
 ### Add proper logging for angular ###
 ### Add dynamic currency symbols ###

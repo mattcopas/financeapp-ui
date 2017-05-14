@@ -1,5 +1,6 @@
 var connection = require('../database/connection');
 var Account = require('../models/account');
+const logger = require('../logger/logger');
 
 var TransactionService = {
 
@@ -21,10 +22,10 @@ var TransactionService = {
       })
     })
     .then(function(result) {
-      console.log("Transaction commited");
+      logger.info("Transaction commited");
     })
     .catch(function(err) {
-      console.log("Transaction error: ", err);
+      logger.error("Transaction error: ", err);
     })
   },
 

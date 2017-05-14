@@ -3,7 +3,8 @@ var financeApp = angular.module('financeApp', [
   'ui.bootstrap',
   'ngRoute',
   'smart-table',
-  'mwl.confirm'
+  'mwl.confirm',
+  'angular-logger'
 ]);
 
 financeApp.config(function($routeProvider) {

@@ -3,7 +3,10 @@ financeApp.controller('homeController', [
   'transactionService',
   '$scope',
   '$uibModal',
-  function(accountService, transactionService, $scope, $uibModal) {
+  '$log',
+  function(accountService, transactionService, $scope, $uibModal, $log) {
+
+  var logger = $log.getInstance('homeController');
 
   $scope.accounts = [];
   $scope.transactions = [];
@@ -12,7 +15,7 @@ financeApp.controller('homeController', [
     $scope.accounts = response.data;
     $scope.transactions = transactionService.parseTransactionData($scope.accounts);
     }, function errorCallBack(response) {
-      console.log("Error getting data: ", response.data);
+      logger.error("Error getting data: ", response.data);
     });
   };
 
@@ -44,12 +47,12 @@ financeApp.controller('homeController', [
   }
 
   $scope.deleteAccount = function(accountId) {
-    console.log("Running $scope.deleteAccount");
+    logger.info("Running $scope.deleteAccount");
     accountService.deleteAccountById(accountId).then(function success(response) {
-      console.log("Inside then block");
+      logger.info5("Inside then block");
       $scope.getAccounts();
     }, function errorCallBack(response) {
-      console.log(response);
+      logger.error(response);
 
     });
 

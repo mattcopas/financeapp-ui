@@ -90,7 +90,7 @@ describe('The Account Service', function() {
 
     it('should convert the account currency to a symbol', function() {
       var parsedAccounts = accountService.parseAccountsData(mockAccountsData);
-      expect(parsedAccounts[0].currency).toBe('£');
+      expect(parsedAccounts[0].currencySymbol).toBe('£');
     });
 
   });

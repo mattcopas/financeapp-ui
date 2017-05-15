@@ -26,7 +26,7 @@ financeApp.service('accountService', ['$http', 'currencyService', function($http
 
   this.parseAccountsData = function(accounts) {
     angular.forEach(accounts, function(account, key) {
-      account.currency = currencyService.convertCurrencyToSymbol(account.currency);
+      account.currencySymbol = currencyService.convertCurrencyToSymbol(account.currency);
     });
 
     return accounts;

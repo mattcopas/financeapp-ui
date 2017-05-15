@@ -81,8 +81,17 @@ describe('The Account Service', function() {
 
     });
 
-  
 
+
+
+  });
+
+  describe('Parsing account data', function() {
+
+    it('should convert the account currency to a symbol', function() {
+      var parsedAccounts = accountService.parseAccountsData(mockAccountsData);
+      expect(parsedAccounts[0].currency).toBe('£');
+    });
 
   });
 

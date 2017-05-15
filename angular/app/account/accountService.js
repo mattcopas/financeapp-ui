@@ -1,4 +1,4 @@
-financeApp.service('accountService', ['$http', function($http) {
+financeApp.service('accountService', ['$http', 'currencyService', function($http, currencyService) {
 
   this.getAccountsByUserId = function(userId) {
     return $http({
@@ -22,6 +22,14 @@ financeApp.service('accountService', ['$http', function($http) {
       method: 'DELETE',
       url: appConfig.urls.api + 'account/delete?id=' + accountId
     })
+  };
+
+  this.parseAccountsData = function(accounts) {
+    angular.forEach(accounts, function(account, key) {
+      account.currency = currencyService.convertCurrencyToSymbol(account.currency);
+    });
+
+    return accounts;
   };
 
 }]);

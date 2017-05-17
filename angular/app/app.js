@@ -12,5 +12,9 @@ financeApp.config(function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: '/static/app/home/home.html',
     controller: 'homeController'
-  })
+  });
+});
+
+financeApp.run(function($rootScope) {
+  $rootScope.applicationTitle = "Finance App";
 });

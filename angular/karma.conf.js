@@ -28,6 +28,7 @@ module.exports = function(config) {
       'node_modules/angular-route/angular-route.min.js',
       'node_modules/angular-bootstrap-confirm/dist/angular-bootstrap-confirm.min.js',
       'node_modules/angular-logger/dist/angular-logger.min.js',
+      'node_modules/iso-currency/dist/isoCurrency.min.js',
       'built/built.js',
       'app/*.js',
       'app/**/*.js',

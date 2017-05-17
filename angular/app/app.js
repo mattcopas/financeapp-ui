@@ -4,7 +4,8 @@ var financeApp = angular.module('financeApp', [
   'ngRoute',
   'smart-table',
   'mwl.confirm',
-  'angular-logger'
+  'angular-logger',
+  'isoCurrency'
 ]);
 
 financeApp.config(function($routeProvider) {

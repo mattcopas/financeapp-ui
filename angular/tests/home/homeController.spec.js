@@ -7,7 +7,6 @@ var transactionService;
 var mockAccountsResponse;
 var $httpBackend;
 var uibModal;
-var currencyService;
 
 describe('The home controller', function() {
 
@@ -21,12 +20,10 @@ describe('The home controller', function() {
     inject(function($injector, $controller) {
       $httpBackend = $injector.get('$httpBackend');
       accountService = $injector.get('accountService');
-      transactionService = $injector.get('transactionService');
-      currencyService = $injector.get('currencyService');
+      transactionService = $injector.get('transactionService');2
       uibModal = $injector.get('$uibModal');
       spyOn(accountService, 'getAccountsByUserId').and.callThrough();
       spyOn(accountService, 'deleteAccountById').and.callThrough();
-      spyOn(accountService, 'parseAccountsData').and.callThrough();
       spyOn(transactionService, 'parseTransactionData').and.callThrough();
       spyOn(uibModal, 'open').and.callThrough();
 
@@ -43,8 +40,6 @@ describe('The home controller', function() {
   });
 
   // TODO Test accountService.parseTransactionData has been called with scope.accounts
-
-  // TODO Test accountService.parseAccountsData has been called with scope.accounts
 
   it('should call the accountService to get accounts data', function() {
     expect(accountService.getAccountsByUserId).toHaveBeenCalled();

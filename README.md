@@ -1,7 +1,6 @@
 ## TODO ##
 ### Set up minikube cluster for local development ###
 ### E2E Protractor Tests ###
-### Add dynamic currency symbol for euros ###
 ### Add Income/Expenses Table ###
 ### Filter Income/Expenses tables by a/c ###
 ### Form validations (Frontend) ###

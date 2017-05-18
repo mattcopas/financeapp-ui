@@ -1,8 +1,6 @@
 ## TODO ##
 ### Set up minikube cluster for local development ###
 ### E2E Protractor Tests ###
-### Add Income transactions table ###
-### Add Expense transactions table ###
 ### Form validations (Frontend) ###
 ### Server side validation ###
 ### Add repeating transactions ###

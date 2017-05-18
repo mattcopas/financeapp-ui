@@ -1,13 +1,15 @@
 ## TODO ##
 ### Set up minikube cluster for local development ###
 ### E2E Protractor Tests ###
-### Add Monthly Income/Expenses Table ###
-### Filter Income/Expenses tables by a/c ###
+### Add Income transactions table ###
+### Add Expense transactions table ###
 ### Form validations (Frontend) ###
 ### Server side validation ###
 ### Add repeating transactions ###
 ### Cancel transactions ###
 ### Edit transanctions ###
+### Add monthly income table ###
+### Add monthly expenses table ###
 ### API Authentication/login ###
 ### Design graphs for overall statistics ###
 ### Design graphs for account statistics ###

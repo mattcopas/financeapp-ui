@@ -24,6 +24,7 @@ financeApp.service('transactionService', [
             accountName: account.name,
             type: transaction.type,
             amount: transaction.amount,
+            currency: account.currency,
             date: transaction.createdAt
           };
 
@@ -34,7 +35,7 @@ financeApp.service('transactionService', [
       });
 
       return transactions;
-      
+
     };
 
   }

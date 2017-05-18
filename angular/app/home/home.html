@@ -77,7 +77,7 @@
     <tr ng-repeat="transaction in safeTransactionsCollection">
       <td>{{transaction.name}}</td>
       <td>{{transaction.type}}</td>
-      <td>{{transaction.amount | currency : '£'}}</td>
+      <td>{{transaction.amount | isoCurrency : transaction.currency}}</td>
       <td>{{transaction.accountName}}</td>
       <td>No</td>
       <td>{{transaction.date | date }}</td>

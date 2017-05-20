@@ -13,7 +13,7 @@ financeApp.controller('homeController', [
 
   $scope.getAccounts = function() {
     accountService.getAccountsByUserId(1).then(function success(response) {
-      $scope.accounts = response.data;
+      $scope.accounts = accountService.parseAccountsData(response.data);
       $scope.transactions = transactionService.parseTransactionData($scope.accounts);
     }, function errorCallBack(response) {
       logger.error("Error getting data: ", response.data);

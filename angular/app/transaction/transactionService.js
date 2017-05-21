@@ -20,7 +20,6 @@ financeApp.service('transactionService', [
     };
 
     this.postCreateTransactionData = function(transactionData) {
-      console.log("Inside postCreateTransactionData");
       return $http({
         method: 'POST',
         url: appConfig.urls.api + 'transaction/add',
@@ -29,7 +28,6 @@ financeApp.service('transactionService', [
     };
 
     this.parseRawTransactionsData = function(rawTransactionsData) {
-      logger.info("rawTransactionsData ", rawTransactionsData);
       return rawTransactionsData._embedded.transactions;
     };
 

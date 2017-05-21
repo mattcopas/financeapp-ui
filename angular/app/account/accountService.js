@@ -11,9 +11,7 @@ financeApp.service('accountService', ['$http', function($http) {
     return $http({
       method: 'POST',
       url: appConfig.urls.api + 'accounts',
-      data: {
-        account: accountData
-      }
+      data: accountData
     })
   };
 

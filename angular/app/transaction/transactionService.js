@@ -20,6 +20,7 @@ financeApp.service('transactionService', [
     };
 
     this.postCreateTransactionData = function(transactionData) {
+      logger.info("Transaction data to send ", transactionData);
       return $http({
         method: 'POST',
         url: appConfig.urls.api + 'transaction/add',

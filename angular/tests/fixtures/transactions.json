@@ -4,6 +4,13 @@
       "id" : 5,
       "name" : "Test Transaction 1",
       "type" : "Income",
+      "account": {
+        "id" : 1,
+        "name" : "Test Account 1",
+        "type" : "Current",
+        "currency" : "GBP",
+        "balance" : 125.0
+      },
       "amount" : 50.0,
       "_links" : {
         "self" : {

@@ -1,12 +1,22 @@
 financeApp.service('transactionService', [
   '$http',
-  function($http) {
+  '$log',
+  function($http, $log) {
+
+    var logger = $log.getInstance('transactionService');
 
     this.getTransactionsByAccountId = function(accountId) {
       return $http({
         method: 'GET',
         url: appConfig.urls.api + 'accounts/' + accountId + '/transactionList'
       });
+    };
+
+    this.getTransactions = function(userId) {
+      return $http({
+        method: 'GET',
+        url: appConfig.urls.api + 'transactions?projection=includeAccount'
+      })
     };
 
     this.postCreateTransactionData = function(transactionData) {
@@ -19,6 +29,7 @@ financeApp.service('transactionService', [
     };
 
     this.parseRawTransactionsData = function(rawTransactionsData) {
+      logger.info("rawTransactionsData ", rawTransactionsData);
       return rawTransactionsData._embedded.transactions;
     };
 

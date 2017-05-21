@@ -32,10 +32,10 @@ module.exports = function(config) {
       'built/built.js',
       'app/*.js',
       'app/**/*.js',
-      // 'tests/*.spec.js',
-      // 'tests/**/*.spec.js',
-      'tests/account/accountService.spec.js',
-      'tests/transaction/transactionService.spec.js',
+      'tests/*.spec.js',
+      'tests/**/*.spec.js',
+      // 'tests/account/*.spec.js',
+      // 'tests/transaction/*.spec.js',
 
       {pattern: 'tests/fixtures/*.json', included: false}
     ],

@@ -13,6 +13,7 @@ financeApp.controller('homeController', [
 
   $scope.getAccounts = function() {
     accountService.getAccountsByUserId(1).then(function success(response) {
+      console.log("Returned data in controller after api call: ", response.data);
       $scope.accounts = accountService.parseAccountsData(response.data);
       transactionService.getTransactions(1).then(function(response) {
         logger.info("rawTransactionsData ", response.data);
@@ -53,7 +54,7 @@ financeApp.controller('homeController', [
   $scope.deleteAccount = function(accountId) {
     logger.info("Running $scope.deleteAccount");
     accountService.deleteAccountById(accountId).then(function success(response) {
-      logger.info5("Inside then block");
+      logger.info("Inside then block");
       $scope.getAccounts();
     }, function errorCallBack(response) {
       logger.error(response);

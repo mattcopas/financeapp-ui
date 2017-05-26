@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">64.29% </span>
+        <span class="strong">86.21% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>18/28</span>
+        <span class='fraction'>25/29</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.67% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/12</span>
+        <span class='fraction'>8/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">64.29% </span>
+        <span class="strong">86.21% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>18/28</span>
+        <span class='fraction'>25/29</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -112,7 +112,8 @@
 67
 68
 69
-70</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,11 +127,12 @@
 <span class="cline-any cline-yes">6×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -138,20 +140,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -167,8 +155,22 @@
 <span class="cline-any cline-yes">6×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,11 +197,12 @@
   $scope.transactions = [];
 &nbsp;
   $scope.getAccounts = function() {
-    accountService.getAccountsByUserId(1).then(<span class="fstat-no" title="function not covered" >function success(response) {</span>
-<span class="cstat-no" title="statement not covered" >      $scope.accounts = accountService.parseAccountsData(response.data);</span>
-<span class="cstat-no" title="statement not covered" >      transactionService.getTransactions(1).then(<span class="fstat-no" title="function not covered" >function(response) {</span></span>
-<span class="cstat-no" title="statement not covered" >        logger.info("rawTransactionsData ", response.data);</span>
-<span class="cstat-no" title="statement not covered" >        $scope.transactions = transactionService.parseRawTransactionsData(response.data);</span>
+    accountService.getAccountsByUserId(1).then(function success(response) {
+      console.log("Returned data in controller after api call: ", response.data);
+      $scope.accounts = accountService.parseAccountsData(response.data);
+      transactionService.getTransactions(1).then(function(response) {
+        logger.info("rawTransactionsData ", response.data);
+        $scope.transactions = transactionService.parseRawTransactionsData(response.data);
       })
     }, <span class="fstat-no" title="function not covered" >function errorCallBack(response) {</span>
 <span class="cstat-no" title="statement not covered" >      logger.error("Error getting data: ", response.data);</span>
@@ -235,9 +238,9 @@
 &nbsp;
   $scope.deleteAccount = function(accountId) {
     logger.info("Running $scope.deleteAccount");
-    accountService.deleteAccountById(accountId).then(<span class="fstat-no" title="function not covered" >function success(response) {</span>
-<span class="cstat-no" title="statement not covered" >      logger.info5("Inside then block");</span>
-<span class="cstat-no" title="statement not covered" >      $scope.getAccounts();</span>
+    accountService.deleteAccountById(accountId).then(function success(response) {
+      logger.info("Inside then block");
+      $scope.getAccounts();
     }, <span class="fstat-no" title="function not covered" >function errorCallBack(response) {</span>
 <span class="cstat-no" title="statement not covered" >      logger.error(response);</span>
 &nbsp;
@@ -256,7 +259,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri May 26 2017 21:05:37 GMT+0100 (GMT Summer Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri May 26 2017 23:49:28 GMT+0100 (GMT Summer Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

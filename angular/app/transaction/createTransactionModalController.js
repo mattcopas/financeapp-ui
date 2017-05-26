@@ -7,7 +7,8 @@ financeApp.controller('createTransactionModalController', [
 
     $scope.submitAddTransactionForm = function(accountId) {
 
-      transactionService.postCreateTransactionData($scope.transaction, accountId)
+      $scope.transaction.accountId = accountId;
+      transactionService.postCreateTransactionData($scope.transaction)
         .then(function success(response) {
           $scope.modalInstance.close();
         });

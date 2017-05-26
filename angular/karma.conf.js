@@ -34,6 +34,8 @@ module.exports = function(config) {
       'app/**/*.js',
       'tests/*.spec.js',
       'tests/**/*.spec.js',
+      // 'tests/account/*.spec.js',
+      // 'tests/transaction/*.spec.js',
 
       {pattern: 'tests/fixtures/*.json', included: false}
     ],

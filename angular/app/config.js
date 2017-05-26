@@ -1,5 +1,5 @@
 var appConfig = {
   urls: {
-    api: 'http://localhost:3000/api/'
+    api: 'http://192.168.99.105:30081/'
   }
 }

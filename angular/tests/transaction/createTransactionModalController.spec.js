@@ -35,7 +35,7 @@ describe('The Create Transaction Modal Contrller', function() {
     var accountId = 1;
     scope.submitAddTransactionForm(accountId);
     expect(transactionService.postCreateTransactionData)
-      .toHaveBeenCalledWith(scope.transaction, accountId);
+      .toHaveBeenCalledWith(scope.transaction);
   });
 
 });

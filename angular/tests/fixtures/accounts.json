@@ -1,36 +1,87 @@
-[
-  {
-    "name":"Account 1",
-    "type":"Current",
-    "currency":"GBP",
-    "balance":"100.00",
-    "transactions": [
-      {
-        "name":"First Transaction",
-        "type":"Expense",
-        "amount":145,
-        "createdAt":"2017-04-17T13:26:50.281Z",
-        "updatedAt":"2017-04-17T13:26:50.281Z",
-        "AccountTransaction":{
-          "createdAt":"2017-04-17T13:26:50.281Z",
-          "updatedAt":"2017-04-17T13:26:50.281Z",
-          "accountId":2,
-          "transactionId":1
-        }
-      },
-      {
-        "name":"Second Transaction",
-        "type":"Income",
-        "amount":120,
-        "createdAt":"2017-04-18T14:26:50.281Z",
-        "updatedAt":"2017-04-18T14:26:50.281Z",
-        "AccountTransaction":{
-          "createdAt":"2017-04-18T14:26:50.281Z",
-          "updatedAt":"2017-04-18T14:26:50.281Z",
-          "accountId":2,
-          "transactionId":2
+{
+  "_embedded" : {
+    "accounts" : [ {
+      "id" : 1,
+      "name" : "Test Account 1",
+      "currency" : "USD",
+      "balance" : 100.0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8081/accounts/1"
+        },
+        "account" : {
+          "href" : "http://localhost:8081/accounts/1"
+        },
+        "transactionList" : {
+          "href" : "http://localhost:8081/accounts/1/transactionList"
         }
       }
-    ]
+    }, {
+      "id" : 4,
+      "name" : "Test Account 4",
+      "currency" : "GBP",
+      "balance" : 200.0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8081/accounts/4"
+        },
+        "account" : {
+          "href" : "http://localhost:8081/accounts/4"
+        },
+        "transactionList" : {
+          "href" : "http://localhost:8081/accounts/4/transactionList"
+        }
+      }
+    }, {
+      "id" : 2,
+      "name" : "Test Account 2",
+      "currency" : "GBP",
+      "balance" : 100.0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8081/accounts/2"
+        },
+        "account" : {
+          "href" : "http://localhost:8081/accounts/2"
+        },
+        "transactionList" : {
+          "href" : "http://localhost:8081/accounts/2/transactionList"
+        }
+      }
+    }, {
+      "id" : 3,
+      "name" : "Test Account 3",
+      "currency" : "GBP",
+      "balance" : 100.0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8081/accounts/3"
+        },
+        "account" : {
+          "href" : "http://localhost:8081/accounts/3"
+        },
+        "transactionList" : {
+          "href" : "http://localhost:8081/accounts/3/transactionList"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8081/accounts{?page,size,sort}",
+      "templated" : true
+    },
+    "profile" : {
+      "href" : "http://localhost:8081/profile/accounts"
+    },
+    "search" : {
+      "href" : "http://localhost:8081/accounts/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 4,
+    "totalPages" : 1,
+    "number" : 0
   }
-]
+}

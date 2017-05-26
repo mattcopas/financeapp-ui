@@ -27,14 +27,15 @@ describe('The Account Service', function() {
   describe('Accounts', function() {
 
     beforeEach(function() {
-      accountsRequestHandler = $httpBackend.expect('GET', 'http://localhost:3000/api/accounts?id=1');
+      accountsRequestHandler = $httpBackend.expect('GET', 'http://localhost:8081/accounts');
       accountsRequestHandler.respond(mockAccountsData);
     });
 
     it('should be an array of accounts', function() {
       accountService.getAccountsByUserId(1).then(function(response) {
-        expect(angular.isArray(response.data)).toBeTruthy();
-        expect(response.data.length).toBe(1);
+        var parsedAccountsData = accountService.parseAccountsData(response.data);
+        expect(angular.isArray(parsedAccountsData)).toBeTruthy();
+        expect(parsedAccountsData.length).toBe(4);
       });
 
       $httpBackend.flush();
@@ -42,23 +43,27 @@ describe('The Account Service', function() {
 
     it('should have an account name', function() {
       accountService.getAccountsByUserId(1).then(function(response) {
-        expect(response.data[0].name).toBe('Account 1');
+        var parsedAccountsData = accountService.parseAccountsData(response.data);
+        expect(parsedAccountsData[0].name).toBe('Test Account 1');
       });
 
       $httpBackend.flush();
     });
 
-    it('should have an account type', function() {
-      accountService.getAccountsByUserId(1).then(function(response) {
-        expect(response.data[0].name).toBe('Account 1');
-      });
-
-      $httpBackend.flush();
-    });
+    // TODO Account Type
+    // it('should have an account type', function() {
+    //   accountService.getAccountsByUserId(1).then(function(response) {
+    //     var parsedAccountsData = accountService.parseAccountsData(response.data);
+    //     expect(parsedAccountsData[0].type).toBe('');
+    //   });
+    //
+    //   $httpBackend.flush();
+    // });
 
     it('should have an account balance', function() {
       accountService.getAccountsByUserId(1).then(function(response) {
-        expect(response.data[0].balance).toBe('100.00');
+        var parsedAccountsData = accountService.parseAccountsData(response.data);
+        expect(parsedAccountsData[0].balance).toBe(100);
       });
 
       $httpBackend.flush();
@@ -66,29 +71,18 @@ describe('The Account Service', function() {
 
     it('should have an account currency', function() {
       accountService.getAccountsByUserId(1).then(function(response) {
-        expect(response.data[0].currency).toBe('GBP');
+        var parsedAccountsData = accountService.parseAccountsData(response.data);
+        expect(parsedAccountsData[0].currency).toBe('USD');
       });
 
       $httpBackend.flush();
     });
-
-    it('should have an array of transactions', function() {
-      accountService.getAccountsByUserId(1).then(function(response) {
-        expect(angular.isArray(response.data[0].transactions)).toBeTruthy();
-      });
-
-      $httpBackend.flush();
-
-    });
-
-
-
 
   });
 
   describe('The post account function', function() {
     beforeEach(function() {
-      postAccountRequestHandler = $httpBackend.expect('POST', 'http://localhost:3000/api/account/save');
+      postAccountRequestHandler = $httpBackend.expect('POST', 'http://localhost:8081/accounts');
       postAccountRequestHandler.respond(200, 'Account added');
     });
 
@@ -110,7 +104,7 @@ describe('The Account Service', function() {
 
   describe('The remove account function', function() {
     beforeEach(function() {
-      deleteAccountRequestHandler = $httpBackend.expect('DELETE', 'http://localhost:3000/api/account/delete?id=123');
+      deleteAccountRequestHandler = $httpBackend.expect('DELETE', 'http://localhost:8081/accounts');
       deleteAccountRequestHandler.respond(200, 'Account deleted');
     });
 

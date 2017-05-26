@@ -12,15 +12,32 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
+    browserConsoleLogOptions: {
+      terminal: true,
+      level: ""
+    },
 
     // list of files / patterns to load in the browser
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/karma-read-json/karma-read-json.js',
+      'node_modules/angular-sanitize/angular-sanitize.min.js',
+      'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
+      'node_modules/angular-smart-table/dist/smart-table.min.js',
+      'node_modules/angular-route/angular-route.min.js',
+      'node_modules/angular-bootstrap-confirm/dist/angular-bootstrap-confirm.min.js',
+      'node_modules/angular-logger/dist/angular-logger.min.js',
+      'node_modules/iso-currency/dist/isoCurrency.min.js',
+      'built/built.js',
       'app/*.js',
       'app/**/*.js',
       'tests/*.spec.js',
-      'tests/**/*.spec.js'
+      'tests/**/*.spec.js',
+      // 'tests/account/*.spec.js',
+      // 'tests/transaction/*.spec.js',
+
+      {pattern: 'tests/fixtures/*.json', included: false}
     ],
 
 
@@ -65,7 +82,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

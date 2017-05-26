@@ -1,0 +1,86 @@
+<h3>My Accounts Summary</h3>
+
+<button ng-click="openCreateAccountModal()" type="button" name="button" class="btn btn-success">Add Account</button>
+
+<table st-table="safeCollection" st-safe-src="accounts" class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        <input st-search="type" class="input-sm form-control" type="search" placeholder="Filter by Account Type"/>
+      </th>
+      <th>
+        <input st-search="currency" class="input-sm form-control" type="search" placeholder="Filter by Currency"/>
+      </th>
+    </tr>
+    <tr>
+      <th style="cursor: pointer" st-sort="name" st-skip-natural="true">Account Name</th>
+      <th style="cursor: pointer" st-sort="type" st-skip-natural="true">Type</th>
+      <th style="cursor: pointer" st-sort="balance" st-skip-natural="true">Balance</th>
+      <th style="cursor: pointer" st-sort="currency" st-skip-natural="true">Currency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="account in safeCollection">
+      <td>{{account.name}}</td>
+      <td>{{account.type}}</td>
+      <td>{{account.balance | isoCurrency : account.currency}}</td>
+      <td>{{account.currency}}</td>
+      <td><button ng-click="openCreateTransactionModal(account)" type="button" name="button" class="btn btn-primary">Make Transaction</button></td>
+      <td><button type="button" name="button" class="btn btn-primary">Edit</button></td>
+      <td>
+
+        <button
+          class="btn btn-danger"
+          mwl-confirm
+          title="Remove Account"
+          message="Are you sure you want to remove <br /> {{account.name}} ?"
+          confirm-text="Delete"
+          cancel-text="Cancel"
+          placement="bottom"
+          on-confirm="deleteAccount(account.id)"
+          on-cancel="cancelClicked = true"
+          confirm-button-type="danger"
+          cancel-button-type="default">
+          <i class="fa fa-times"></i>
+        </button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>My Transactions Summary</h3>
+
+<table st-table="safeTransactionsCollection" st-safe-src="transactions" class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        <input st-search="accountName" class="input-sm form-control" type="search" placeholder="Filter by Account Name"/>
+      </th>
+      <th>
+        <input st-search="name" class="input-sm form-control" type="search" placeholder="Filter by Transaction Name"/>
+      </th>
+      <th>
+        <input st-search="type" class="input-sm form-control" type="search" placeholder="Filter by Transaction Type"/>
+      </th>
+    </tr>
+    <tr>
+      <th style="cursor: pointer" st-sort="name" st-skip-natural="true">Name</th>
+      <th style="cursor: pointer" st-sort="type" st-skip-natural="true">Type</th>
+      <th style="cursor: pointer" st-sort="amount" st-skip-natural="true">Amount</th>
+      <th style="cursor: pointer" st-sort="accountName" st-skip-natural="true">Account Name</th>
+      <th>Repeating?</th>
+      <th style="cursor: pointer" st-sort="date" st-skip-natural="true">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="transaction in safeTransactionsCollection">
+      <td>{{transaction.name}}</td>
+      <td>{{transaction.type}}</td>
+      <td>{{transaction.amount | isoCurrency : transaction.account.currency}}</td>
+      <td>{{transaction.account.name}}</td>
+      <td>No</td>
+      <td>{{transaction.date | date }}</td>
+    </tr>
+  </tbody>
+</table>

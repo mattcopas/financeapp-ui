@@ -1,0 +1,33 @@
+{
+  "_embedded" : {
+    "transactions" : [ {
+      "id" : 5,
+      "name" : "Test Transaction 1",
+      "type" : "Income",
+      "account": {
+        "id" : 1,
+        "name" : "Test Account 1",
+        "type" : "Current",
+        "currency" : "GBP",
+        "balance" : 125.0
+      },
+      "amount" : 50.0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8081/transactions/5"
+        },
+        "transaction" : {
+          "href" : "http://localhost:8081/transactions/5"
+        },
+        "account" : {
+          "href" : "http://localhost:8081/transactions/5/account"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8081/accounts/1/transactionList"
+    }
+  }
+}

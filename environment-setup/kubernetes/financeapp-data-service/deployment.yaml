@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: financeapp-data-service-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: financeapp-data-service
+    spec:
+      imagePullSecrets:
+      - name: regsecret
+      containers:
+      - name: financeapp-data-service
+        image: "cloud.canister.io:5000/chemhistorian/financeapp-dataservice"
+        env:
+        - name: DB_HOST
+          value: "${pg_host}"
+        - name: DB_PORT
+          value: "30060"
+        - name: DB_NAME
+          value: financedataservicedb
+        - name: DB_USERNAME
+          value: postgres
+        - name: DB_PASSWORD
+          value: password
+        - name: allowedOrigin
+          value: "http://localhost:3000"
+        ports:
+        - containerPort: 8081

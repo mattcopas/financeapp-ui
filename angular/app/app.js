@@ -1,9 +1,20 @@
-var financeApp = angular.module('financeApp', []);
+var financeApp = angular.module('financeApp', [
+  'ngSanitize',
+  'ui.bootstrap',
+  'ngRoute',
+  'smart-table',
+  'mwl.confirm',
+  'angular-logger',
+  'isoCurrency'
+]);
 
-financeApp.service('testService', [function() {
+financeApp.config(function($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: '/static/app/home/home.html',
+    controller: 'homeController'
+  });
+});
 
-this.testServiceFunction = function(a) {
-  return a;
-}
-
-}]);
+financeApp.run(function($rootScope) {
+  $rootScope.applicationTitle = "Finance App";
+});

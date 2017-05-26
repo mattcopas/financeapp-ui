@@ -112,9 +112,8 @@ describe('The Account Service', function() {
       accountService.deleteAccountById(123).then(function(response) {
         expect(response.status).toBe(200);
         expect(response.data).toBe('Account deleted');
-        $httpBackend.flush();
       });
-
+      $httpBackend.flush();
     });
   });
 

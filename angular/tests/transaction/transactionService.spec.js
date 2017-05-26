@@ -69,10 +69,12 @@ describe('The Transaction Service', function() {
 
   describe('Posting transaction data', function() {
 
-    it('should call the backend api to save a transaction', function() {
-      // TODO This test is not making the required post request
+    beforeEach(function() {
       mockPostTransactionsRequest = $httpBackend.expect('POST', 'http://localhost:8081/transaction/add');
       mockPostTransactionsRequest.respond(200, 'Transaction saved');
+    });
+
+    it('should call the backend api to save a transaction', function() {
 
       var transactionData = {
         name: 'Test Transaction To Add',
@@ -85,6 +87,7 @@ describe('The Transaction Service', function() {
         expect(response.data).toBe('Transaction saved');
         expect(response.status).toBe(200);
       });
+      $httpBackend.flush();
     });
   });
 

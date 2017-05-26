@@ -34,8 +34,6 @@ module.exports = function(config) {
       'app/**/*.js',
       'tests/*.spec.js',
       'tests/**/*.spec.js',
-      // 'tests/account/*.spec.js',
-      // 'tests/transaction/*.spec.js',
 
       {pattern: 'tests/fixtures/*.json', included: false}
     ],
@@ -55,8 +53,22 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+    preprocessors: {
+      'app/**/*.js':['coverage']
+    },
 
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [
+        {
+          type: 'text-summary'
+        },
+        {
+          type: 'html',
+        }
+      ]
+    },
 
     // web server port
     port: 9876,

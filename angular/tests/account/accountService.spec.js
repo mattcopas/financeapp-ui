@@ -51,14 +51,14 @@ describe('The Account Service', function() {
     });
 
     // TODO Account Type
-    // it('should have an account type', function() {
-    //   accountService.getAccountsByUserId(1).then(function(response) {
-    //     var parsedAccountsData = accountService.parseAccountsData(response.data);
-    //     expect(parsedAccountsData[0].type).toBe('');
-    //   });
-    //
-    //   $httpBackend.flush();
-    // });
+    it('should have an account type', function() {
+      accountService.getAccountsByUserId(1).then(function(response) {
+        var parsedAccountsData = accountService.parseAccountsData(response.data);
+        expect(parsedAccountsData[0].type).toBe('Current');
+      });
+
+      $httpBackend.flush();
+    });
 
     it('should have an account balance', function() {
       accountService.getAccountsByUserId(1).then(function(response) {

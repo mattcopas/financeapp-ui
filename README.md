@@ -1,8 +1,6 @@
 ## TODO ##
-### Set up minikube cluster for local development ###
 ### E2E Protractor Tests ###
-### Form validations (Frontend) ###
-### Server side validation ###
+### Form validations ###
 ### Add repeating transactions ###
 ### Cancel transactions ###
 ### Edit transanctions ###

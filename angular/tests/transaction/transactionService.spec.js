@@ -26,45 +26,55 @@ describe('The Transaction Service', function() {
 
   });
 
-  describe('Getting transactions data', function() {
+  describe('Getting transaction data by account id', function() {
+    beforeEach(function() {
+      mockGetTransactionsRequest = $httpBackend.expect('GET', 'http://localhost:8081/accounts/1/transactionList');
+      mockGetTransactionsRequest.respond(mockTransactionsData);
+    });
+
+    it('should give a transaction name', function () {
+      transactionService.getTransactionsByAccountId(1).then(function(response) {
+        expect(response.data._embedded).toBeDefined();
+      })
+    });
+  });
+
+  describe('Getting transactions data by user id', function() {
 
     beforeEach(function() {
       mockGetTransactionsRequest = $httpBackend.expect('GET', 'http://localhost:8081/transactions?projection=includeAccount');
       mockGetTransactionsRequest.respond(mockTransactionsData);
+    });
+
+    it('should get transaction data by user id from the api', function() {
+      transactionService.getTransactions(1).then(function() {
+        expect(response.data._embedded).toBeDefined();
+      });
     })
 
+  });
+
+  describe('Parsing transaction data', function() {
+
     it('should give a transaction name', function() {
-      transactionService.getTransactions(1).then(function(response) {
-        var parsedTransactionsData = transactionService.parseRawTransactionsData(response.data);
-        expect(parsedTransactionsData[0].name).toBe('Test Transaction 1');
-      });
-      $httpBackend.flush();
+      var parsedTransactionsData = transactionService.parseRawTransactionsData(mockTransactionsData);
+      expect(parsedTransactionsData[0].name).toBe('Test Transaction 1');
     });
 
     it('should give a transaction type', function() {
-      transactionService.getTransactions(1).then(function(response) {
-        var parsedTransactionsData = transactionService.parseRawTransactionsData(response.data);
-        expect(parsedTransactionsData[0].type).toBe('Income');
-      });
-      $httpBackend.flush();
+      var parsedTransactionsData = transactionService.parseRawTransactionsData(mockTransactionsData);
+      expect(parsedTransactionsData[0].type).toBe('Income');
     });
 
     it('should give a transaction amount', function() {
-      transactionService.getTransactions(1).then(function(response) {
-        var parsedTransactionsData = transactionService.parseRawTransactionsData(response.data);
-        expect(parsedTransactionsData[0].amount).toBe(50);
-      });
-      $httpBackend.flush();
+      var parsedTransactionsData = transactionService.parseRawTransactionsData(mockTransactionsData);
+      expect(parsedTransactionsData[0].amount).toBe(50);
     });
 
     it('should have an account name', function() {
-      transactionService.getTransactions(1).then(function(response) {
-        var parsedTransactionsData = transactionService.parseRawTransactionsData(response.data);
-        expect(parsedTransactionsData[0].account.name).toBe('Test Account 1');
-      });
-      $httpBackend.flush();
+      var parsedTransactionsData = transactionService.parseRawTransactionsData(mockTransactionsData);
+      expect(parsedTransactionsData[0].account.name).toBe('Test Account 1');
     });
-
   });
 
   describe('Posting transaction data', function() {

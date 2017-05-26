@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">61.11% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/18</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">61.11% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/18</span>
+        <span class='fraction'>11/11</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -80,53 +80,28 @@
 35
 36
 37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+38</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">19×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17×</span>
-<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">19×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,33 +110,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">19×</span>
 <span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,8 +124,8 @@
 &nbsp;
     var logger = $log.getInstance('transactionService');
 &nbsp;
-    this.getTransactionsByAccountId = <span class="fstat-no" title="function not covered" >function(accountId) {</span>
-<span class="cstat-no" title="statement not covered" >      return $http({</span>
+    this.getTransactionsByAccountId = function(accountId) {
+      return $http({
         method: 'GET',
         url: appConfig.urls.api + 'accounts/' + accountId + '/transactionList'
       });
@@ -201,31 +151,6 @@
       return rawTransactionsData._embedded.transactions;
     };
 &nbsp;
-    this.parseTransactionData = <span class="fstat-no" title="function not covered" >function(accounts) {</span>
-<span class="cstat-no" title="statement not covered" >      var transactions = [];</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      angular.forEach(accounts, <span class="fstat-no" title="function not covered" >function(account, key) {</span></span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >        angular.forEach(account.transactions, <span class="fstat-no" title="function not covered" >function(transaction, key) {</span></span>
-<span class="cstat-no" title="statement not covered" >          var parsedTransaction = {</span>
-            name: transaction.name,
-            accountName: account.name,
-            type: transaction.type,
-            amount: transaction.amount,
-            currency: account.currency,
-            date: transaction.createdAt
-          };
-&nbsp;
-<span class="cstat-no" title="statement not covered" >          transactions.push(parsedTransaction);</span>
-&nbsp;
-        });
-&nbsp;
-      });
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      return transactions;</span>
-&nbsp;
-    };
-&nbsp;
   }
 &nbsp;
 ]);
@@ -235,7 +160,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 27 2017 00:21:30 GMT+0100 (GMT Summer Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 27 2017 00:37:20 GMT+0100 (GMT Summer Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

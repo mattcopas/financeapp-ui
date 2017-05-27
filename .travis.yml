@@ -1,8 +1,8 @@
 
-language: javascript
+language: node_js
 
 node_js:
-  - "7"
+  - "node"
   
 before_install:
   - npm cache clean -f

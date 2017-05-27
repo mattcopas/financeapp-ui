@@ -1,5 +1,3 @@
-var appConfig = {
-  urls: {
-    api: 'http://localhost:8081/'
-  }
-}
+financeApp.constant('ENV', {
+  API_URL: "http://localhost:8081/"
+})

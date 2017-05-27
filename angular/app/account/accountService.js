@@ -1,16 +1,16 @@
-financeApp.service('accountService', ['$http', function($http) {
+financeApp.service('accountService', ['ENV', '$http', function(ENV, $http) {
 
   this.getAccountsByUserId = function(userId) {
     return $http({
       method: 'GET',
-      url: appConfig.urls.api + 'accounts'
+      url: ENV.API_URL + 'accounts'
     })
   };
 
   this.postCreateAccountData = function(accountData) {
     return $http({
       method: 'POST',
-      url: appConfig.urls.api + 'accounts',
+      url: ENV.API_URL + 'accounts',
       data: accountData
     })
   };
@@ -18,7 +18,7 @@ financeApp.service('accountService', ['$http', function($http) {
   this.deleteAccountById = function(accountId) {
     return $http({
       method: 'DELETE',
-      url: appConfig.urls.api + 'accounts'
+      url: ENV.API_URL + 'accounts'
     })
   };
 

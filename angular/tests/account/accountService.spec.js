@@ -8,6 +8,7 @@ var returnedAccountsData;
 var postAccountRequestHandler;
 var deleteAccountRequestHandler;
 var parsedTransactionData;
+var ENV;
 
 describe('The Account Service', function() {
 
@@ -16,6 +17,7 @@ describe('The Account Service', function() {
     module('financeApp');
 
     inject(function($injector) {
+      ENV = $injector.get('ENV');
       accountService = $injector.get('accountService');
       $httpBackend = $injector.get('$httpBackend');
     });
@@ -27,7 +29,7 @@ describe('The Account Service', function() {
   describe('Accounts', function() {
 
     beforeEach(function() {
-      accountsRequestHandler = $httpBackend.expect('GET', 'http://localhost:8081/accounts');
+      accountsRequestHandler = $httpBackend.expect('GET', ENV.API_URL + 'accounts');
       accountsRequestHandler.respond(mockAccountsData);
     });
 
@@ -82,7 +84,7 @@ describe('The Account Service', function() {
 
   describe('The post account function', function() {
     beforeEach(function() {
-      postAccountRequestHandler = $httpBackend.expect('POST', 'http://localhost:8081/accounts');
+      postAccountRequestHandler = $httpBackend.expect('POST', ENV.API_URL + 'accounts');
       postAccountRequestHandler.respond(200, 'Account added');
     });
 
@@ -104,7 +106,7 @@ describe('The Account Service', function() {
 
   describe('The remove account function', function() {
     beforeEach(function() {
-      deleteAccountRequestHandler = $httpBackend.expect('DELETE', 'http://localhost:8081/accounts');
+      deleteAccountRequestHandler = $httpBackend.expect('DELETE', ENV.API_URL  + 'accounts');
       deleteAccountRequestHandler.respond(200, 'Account deleted');
     });
 

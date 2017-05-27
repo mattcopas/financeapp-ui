@@ -7,6 +7,7 @@ var mockPostTransactionsRequest;
 var mockAccountsData;
 var mockTransactionsData;
 var parsedTransactionData;
+var ENV;
 
 describe('The Transaction Service', function() {
 
@@ -16,6 +17,7 @@ describe('The Transaction Service', function() {
 
     inject(function($injector) {
 
+      ENV = $injector.get('ENV');
       transactionService = $injector.get('transactionService');
       $httpBackend = $injector.get('$httpBackend');
 
@@ -28,7 +30,7 @@ describe('The Transaction Service', function() {
 
   describe('Getting transaction data by account id', function() {
     beforeEach(function() {
-      mockGetTransactionsRequest = $httpBackend.expect('GET', 'http://localhost:8081/accounts/1/transactionList');
+      mockGetTransactionsRequest = $httpBackend.expect('GET', ENV.API_URL + 'accounts/1/transactionList');
       mockGetTransactionsRequest.respond(mockTransactionsData);
     });
 
@@ -42,7 +44,7 @@ describe('The Transaction Service', function() {
   describe('Getting transactions data by user id', function() {
 
     beforeEach(function() {
-      mockGetTransactionsRequest = $httpBackend.expect('GET', 'http://localhost:8081/transactions?projection=includeAccount');
+      mockGetTransactionsRequest = $httpBackend.expect('GET', + ENV.API_URL + 'transactions?projection=includeAccount');
       mockGetTransactionsRequest.respond(mockTransactionsData);
     });
 
@@ -80,7 +82,7 @@ describe('The Transaction Service', function() {
   describe('Posting transaction data', function() {
 
     beforeEach(function() {
-      mockPostTransactionsRequest = $httpBackend.expect('POST', 'http://localhost:8081/transaction/add');
+      mockPostTransactionsRequest = $httpBackend.expect('POST', ENV.API_URL + 'transaction/add');
       mockPostTransactionsRequest.respond(200, 'Transaction saved');
     });
 

@@ -1,21 +1,22 @@
 financeApp.service('transactionService', [
   '$http',
   '$log',
-  function($http, $log) {
+  'ENV',
+  function($http, $log, ENV) {
 
     var logger = $log.getInstance('transactionService');
 
     this.getTransactionsByAccountId = function(accountId) {
       return $http({
         method: 'GET',
-        url: appConfig.urls.api + 'accounts/' + accountId + '/transactionList'
+        url: ENV.API_URL + 'accounts/' + accountId + '/transactionList'
       });
     };
 
     this.getTransactions = function(userId) {
       return $http({
         method: 'GET',
-        url: appConfig.urls.api + 'transactions?projection=includeAccount'
+        url: ENV.API_URL + 'transactions?projection=includeAccount'
       })
     };
 
@@ -23,7 +24,7 @@ financeApp.service('transactionService', [
       logger.info("Transaction data to send ", transactionData);
       return $http({
         method: 'POST',
-        url: appConfig.urls.api + 'transaction/add',
+        url: ENV.API_URL + 'transaction/add',
         data: transactionData
       });
     };

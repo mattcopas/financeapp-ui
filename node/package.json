@@ -16,6 +16,7 @@
     "gulp-env": "^0.4.0",
     "gulp-jasmine-node": "^1.0.7",
     "gulp-nodemon": "^2.2.1",
+    "moment": "^2.18.1",
     "path": "^0.12.7",
     "winston": "^2.3.1"
   },

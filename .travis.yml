@@ -2,13 +2,6 @@ language: javascript
 
 node_js:
   - "7"
-  
-before_install:
-  - cd angular
-  - npm install -g npm@latest
-  - cd ../node
-  - npm install -g npm@latest
-  - cd ..
 
 install:
   - cd angular

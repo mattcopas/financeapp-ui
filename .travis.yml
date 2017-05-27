@@ -1,0 +1,18 @@
+language: javascript
+
+node_js:
+  - "7"
+
+install:
+  - cd angular
+  - npm install
+  - cd ../node
+  - npm install
+  - cd ..
+
+script:
+  - cd angular
+  - npm test
+  - cd ../node
+  - npm test
+  - cd ..

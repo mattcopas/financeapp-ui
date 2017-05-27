@@ -16,7 +16,7 @@ gulp.task('nodemon', function() {
 
 gulp.task('test', function() {
   env({
-    file: './testEnvironment.json'
+    file: ''
   })
   return gulp.src(['tests/**/*.spec.js'])
     .pipe(mocha({

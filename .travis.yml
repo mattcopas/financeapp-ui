@@ -15,5 +15,5 @@ script:
   - cd angular
   - npm test
   - cd ../node
-  - npm test
+  - npm test --harmony
   - cd ..

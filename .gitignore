@@ -11,3 +11,4 @@ devEnvironment.json
 npm-debug.log
 .nyc_output
 angular/built
+angular/coverage

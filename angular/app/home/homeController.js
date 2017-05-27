@@ -13,13 +13,18 @@ financeApp.controller('homeController', [
 
   $scope.getAccounts = function() {
     accountService.getAccountsByUserId(1).then(function success(response) {
+      console.log("Returned data in controller after api call: ", response.data);
       $scope.accounts = accountService.parseAccountsData(response.data);
-      transactionService.getTransactions(1).then(function(response) {
+      transactionService.getTransactions(1).then(function successCallback(response) {
         logger.info("rawTransactionsData ", response.data);
         $scope.transactions = transactionService.parseRawTransactionsData(response.data);
+      }, function errorCallback(error) {
+        logger.error("Error getting data: ", error.data);
+        $scope.error = "There was a problem when retrieving data";
       })
-    }, function errorCallBack(response) {
-      logger.error("Error getting data: ", response.data);
+    }, function errorCallBack(error) {
+      logger.error("Error getting data: ", error.data);
+      $scope.error = "There was a problem when retrieving data";
     });
   };
 
@@ -53,10 +58,11 @@ financeApp.controller('homeController', [
   $scope.deleteAccount = function(accountId) {
     logger.info("Running $scope.deleteAccount");
     accountService.deleteAccountById(accountId).then(function success(response) {
-      logger.info5("Inside then block");
+      logger.info("Inside then block");
       $scope.getAccounts();
     }, function errorCallBack(response) {
-      logger.error(response);
+      logger.error(response.data);
+      $scope.error = "There was a problem deleting an account";
 
     });
 

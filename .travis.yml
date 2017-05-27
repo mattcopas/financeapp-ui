@@ -1,7 +1,8 @@
-language: javascript
+language: node_js
 
 node_js:
-  - "7"
+  - "node"
+
 
 install:
   - cd angular
@@ -14,5 +15,5 @@ script:
   - cd angular
   - npm test
   - cd ../node
-  - npm test
+  - npm test --harmony
   - cd ..

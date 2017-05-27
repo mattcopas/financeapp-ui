@@ -3,6 +3,11 @@ language: javascript
 
 node_js:
   - "7"
+  
+before_install:
+  - npm cache clean -f
+  - npm install -g n
+  - sudo n stable
 
 install:
   - cd angular

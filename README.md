@@ -1,20 +1,13 @@
 ## TODO ##
 
-### Add proper logging for Node ###
-### Add proper logging for angular ###
-### setup env variables for dev/test/prod ###
-### E2E Protractor Tests ###
-### Add dynamic currency symbols ###
-### Add Income/Expenses Table ###
-### Filter Income/Expenses tables by a/c ###
-### Form validations (Frontend) ###
-### Server side validation ###
+### Form validation ###
 ### Add repeating transactions ###
 ### Cancel transactions ###
 ### Edit transanctions ###
 ### API Authentication/login ###
 ### Design graphs for overall statistics ###
 ### Design graphs for account statistics ###
+### Protractor Tests ###
 
 # README #
 

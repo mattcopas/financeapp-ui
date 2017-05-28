@@ -9,11 +9,9 @@ spec:
       labels:
         app: financeapp-data-service
     spec:
-      imagePullSecrets:
-      - name: regsecret
       containers:
       - name: financeapp-data-service
-        image: "cloud.canister.io:5000/chemhistorian/financeapp-dataservice"
+        image: "mattcopas/financeapp-data-service:0.0.1"
         env:
         - name: DB_HOST
           value: "${pg_host}"

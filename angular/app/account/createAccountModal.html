@@ -1,29 +1,41 @@
 <h4>Add New Account</h4>
 
-<form ng-submit="submitCreateAccountForm()" class="">
+<form name="createAccountForm" ng-submit="submitCreateAccountForm()" class="" novalidate>
   <div class="form-group">
-    <input ng-model="account.name" class="form-control" type="text" name="name" value="" placeholder="Account Name" />
+    <input ng-model="account.name" class="form-control" type="text" name="name" value="" placeholder="Account Name" required="true " />
+    <div ng-show="createAccountForm.name.$touched && createAccountForm.name.$invalid" class="help-block">
+      Please enter an account name
+    </div>
   </div>
   <div class="form-group">
-    <input ng-model="account.balance" class="form-control" type="number" name="balance" value="" placeholder="Current Balance" />
+    <input ng-model="account.balance" class="form-control" type="number" name="balance" value="" placeholder="Current Balance" required="true"/>
+    <div ng-show="createAccountForm.balance.$touched && createAccountForm.balance.$invalid" class="help-block">
+      Please enter an initial account balance
+    </div>
   </div>
   <div class="form-group">
-    <select ng-model="account.type" class="form-control" name="type" placeholder="Account Type">
+    <select ng-model="account.type" class="form-control" name="type" placeholder="Account Type" required="true" >
       <option value="" selected="selected">Account Type</option>
       <option value="Current">Current</option>
       <option value="Saving">Saving</option>
       <option value="ISA">ISA</option>
       <option value="Cash">Cash</option>
     </select>
+    <div ng-show="createAccountForm.type.$touched && createAccountForm.type.$invalid" class="help-block">
+      Please select an account type
+    </div>
   </div>
   <div class="form-group">
-    <select ng-model="account.currency" class="form-control" name="type" placeholder="Currency">
+    <select ng-model="account.currency" class="form-control" name="currency" placeholder="Currency" required="true">
       <option value="" selected="selected">Currency</option>
       <option value="GBP">GBP</option>
       <option value="USD">USD</option>
       <option value="EUR">EUR</option>
     </select>
+    <div ng-show="createAccountForm.currency.$touched && createAccountForm.currency.$invalid" class="help-block">
+      Please select a currency
+    </div>
   </div>
 
-  <button type="submit" name="createAccountButton" class="btn btn-success">Submit</button>
+  <button ng-disabled="createAccountForm.$invalid" type="submit" name="createAccountButton" class="btn btn-success">Submit</button>
 </form>

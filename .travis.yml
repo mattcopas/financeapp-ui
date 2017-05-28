@@ -17,3 +17,8 @@ script:
   - cd ../node
   - npm test --harmony
   - cd ..
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never

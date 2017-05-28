@@ -1,3 +1,3 @@
 financeApp.constant('ENV', {
-  API_URL: "http://localhost:8081/"
+  API_URL: "http://192.168.99.102:30081/"
 })

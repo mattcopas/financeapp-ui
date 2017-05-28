@@ -1,5 +1,5 @@
 # This will work on Git Bash if running on Windows
-minikube start --memory 2048
+minikube start --memory 2048 --iso-url="https://storage.googleapis.com/minikube/minikube-0.5.iso"
 dockerRegistry="cloud.canister.io:5000"
 export pg_host=$(minikube ip)
 

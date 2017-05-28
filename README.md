@@ -1,8 +1,7 @@
 ## TODO ##
 
-### Form validation ###
-### Add repeating transactions ###
 ### Cancel transactions ###
+### Add repeating transactions ###
 ### Edit transanctions ###
 ### API Authentication/login ###
 ### Design graphs for overall statistics ###

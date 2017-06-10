@@ -18,7 +18,7 @@ financeApp.service('accountService', ['ENV', '$http', function(ENV, $http) {
   this.deleteAccountById = function(accountId) {
     return $http({
       method: 'DELETE',
-      url: ENV.API_URL + 'accounts'
+      url: ENV.API_URL + 'accounts/' + accountId
     })
   };
 

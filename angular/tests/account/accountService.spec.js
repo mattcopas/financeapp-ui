@@ -106,7 +106,7 @@ describe('The Account Service', function() {
 
   describe('The remove account function', function() {
     beforeEach(function() {
-      deleteAccountRequestHandler = $httpBackend.expect('DELETE', ENV.API_URL  + 'accounts');
+      deleteAccountRequestHandler = $httpBackend.expect('DELETE', ENV.API_URL  + 'accounts/123');
       deleteAccountRequestHandler.respond(200, 'Account deleted');
     });
 

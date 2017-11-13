@@ -15,6 +15,7 @@ var deferredDeleteAccountPromise;
 var rootScope;
 var mockResponseObject;
 var mockErrorObject;
+var deferredRollbackTransactionPromise;
 
 describe('The home controller', function() {
 
@@ -35,12 +36,14 @@ describe('The home controller', function() {
       deferredGetAccountsPromise = q.defer();
       deferredGetTransactionsPromise = q.defer();
       deferredDeleteAccountPromise = q.defer();
+      deferredRollbackTransactionPromise = q.defer();
 
       spyOn(accountService, 'getAccountsByUserId').and.returnValue(deferredGetAccountsPromise.promise);
       spyOn(accountService, 'deleteAccountById').and.returnValue(deferredDeleteAccountPromise.promise);
       spyOn(accountService, 'parseAccountsData').and.returnValue({});
       spyOn(transactionService, 'parseRawTransactionsData').and.returnValue({});
       spyOn(transactionService, 'getTransactions').and.returnValue(deferredGetTransactionsPromise.promise);
+      spyOn(transactionService, 'rollbackTransaction').and.returnValue(deferredRollbackTransactionPromise.promise);
       spyOn(uibModal, 'open').and.callThrough();
 
 
@@ -107,7 +110,7 @@ describe('The home controller', function() {
     deferredDeleteAccountPromise.reject(mockErrorObject);
     scope.$apply();
     expect(scope.error).toBe("There was a problem deleting an account");
-  })
+  });
 
   it('should call $uibModal.open to open the createAccountModal', function() {
     deferredGetAccountsPromise.resolve(mockResponseObject);
@@ -121,6 +124,13 @@ describe('The home controller', function() {
     scope.$apply();
     scope.openCreateTransactionModal();
     expect(uibModal.open).toHaveBeenCalled();
+  });
+
+  it('should call the transacionService to rollback a transaction', function() {
+    deferredRollbackTransactionPromise.resolve(mockResponseObject);
+    scope.$apply();
+    scope.rollbackTransaction(1);
+    expect(transactionService.rollbackTransaction).toHaveBeenCalledWith(1);
   });
 
 });

@@ -33,6 +33,13 @@ financeApp.service('transactionService', [
       return rawTransactionsData._embedded.transactions;
     };
 
+    this.rollbackTransaction = function(transactionId) {
+      return $http({
+        method: 'POST',
+          url: ENV.API_URL + "transaction/rollback/" + transactionId
+      });
+    }
+
   }
 
 ]);

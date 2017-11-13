@@ -53,7 +53,7 @@ financeApp.controller('homeController', [
     $scope.modalInstance.closed.then(function() {
       $scope.getAccounts();
     });
-  }
+  };
 
   $scope.deleteAccount = function(accountId) {
     logger.info("Running $scope.deleteAccount");
@@ -67,6 +67,16 @@ financeApp.controller('homeController', [
     });
 
     $scope.getAccounts();
+
+  };
+
+  $scope.rollbackTransaction = function(transactionId) {
+    transactionService.rollbackTransaction(transactionId).then(function success(response) {
+      logger.info("Transaction " + transactionId +" deleted");
+      $scope.getAccounts();
+    }, function error(response) {
+      logger.error("Error deleting transaction " + transactionId, response);
+    });
 
   };
 

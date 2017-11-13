@@ -6,8 +6,9 @@ var mockGetTransactionsRequest;
 var mockPostTransactionsRequest;
 var mockAccountsData;
 var mockTransactionsData;
-var parsedTransactionData;
 var ENV;
+var mockRollbackTransactionRequest;
+
 
 describe('The Transaction Service', function() {
 
@@ -101,6 +102,21 @@ describe('The Transaction Service', function() {
       });
       $httpBackend.flush();
     });
+  });
+
+  describe('Rolling back a transaction', function() {
+
+      beforeEach(function() {
+        mockRollbackTransactionRequest = $httpBackend.expect('POST', ENV.API_URL + "transaction/rollback/1");
+        mockRollbackTransactionRequest.respond(200);
+      });
+
+      it('should call the API to roll back a transaction', function() {
+        transactionService.rollbackTransaction(1).then(function success(response) {
+          expect(response.data).toBe(200);
+        });
+      });
+
   });
 
 });

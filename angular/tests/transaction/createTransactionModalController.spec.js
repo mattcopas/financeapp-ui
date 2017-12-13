@@ -6,6 +6,7 @@ var transactionService;
 var deferred;
 var q;
 var rootScope;
+var $httpBackend;
 
 describe('The Create Transaction Modal Contrller', function() {
 
@@ -16,7 +17,7 @@ describe('The Create Transaction Modal Contrller', function() {
       rootScope = $injector.get('$rootScope');
       q = $injector.get('$q');
       transactionService = $injector.get('transactionService');
-
+      $httpBackend = $injector.get('$httpBackend');
       deferred = q.defer();
 
       spyOn(transactionService, 'postCreateTransactionData').and.returnValue(deferred.promise);
@@ -29,6 +30,8 @@ describe('The Create Transaction Modal Contrller', function() {
       createTransactionModalController = $controller('createTransactionModalController', {$scope: scope});
 
     });
+
+    $httpBackend.whenGET('/static/app/home/home.html').respond(200);
   });
 
   it('should assign a transaction to scope', function() {

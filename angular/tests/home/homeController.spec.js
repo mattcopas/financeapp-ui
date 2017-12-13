@@ -60,6 +60,8 @@ describe('The home controller', function() {
       });
     });
 
+    $httpBackend.whenGET('/static/app/home/home.html').respond(200);
+
   });
 
   it('should assign accounts to scope', function() {

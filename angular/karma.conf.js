@@ -31,7 +31,9 @@ module.exports = function(config) {
       'node_modules/iso-currency/dist/isoCurrency.min.js',
       'built/built.js',
       'app/*.js',
+      'app/*.html',
       'app/**/*.js',
+      'app/**/*.html',
       'tests/*.spec.js',
       'tests/**/*.spec.js',
 

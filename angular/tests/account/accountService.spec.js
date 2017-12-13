@@ -24,6 +24,8 @@ describe('The Account Service', function() {
 
     mockAccountsData = readJSON('tests/fixtures/accounts.json');
 
+    $httpBackend.whenGET('/static/app/home/home.html').respond(200);
+
   });
 
   describe('Accounts', function() {

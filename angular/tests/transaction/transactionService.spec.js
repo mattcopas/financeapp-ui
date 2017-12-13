@@ -27,6 +27,8 @@ describe('The Transaction Service', function() {
     mockTransactionsData = readJSON('tests/fixtures/transactions.json');
     mockAccountsData = readJSON('tests/fixtures/accounts.json');
 
+    $httpBackend.whenGET('/static/app/home/home.html').respond(200);
+
   });
 
   describe('Getting transaction data by account id', function() {
